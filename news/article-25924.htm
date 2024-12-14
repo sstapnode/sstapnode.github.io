@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sstapnode.github.io/news/article-25924.htm" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue 大量数据展示卡顿解决方案（长列表优化）</title>
+        <meta name="description" content="需求分析（长列表展示） 页面某处需要渲染1w+ 条数据，并需要滚动展示，这时如果直接把这些数据渲染到页面上，会导致系统内存大量被占用，导致页面卡顿或崩溃 我们都知道，每次 DOM 修改，浏览器都会重新" />
+        <link rel="icon" href="/assets/website/img/sstapnode/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/all-fontawesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/animate.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/magnific-popup.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/jquery-ui.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/jquery.timepicker.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/nice-select.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/style.css">
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RQLB5BXPJG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RQLB5BXPJG');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="loader-ripple">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <header class="header">
+        <div class="main-navigation">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container position-relative">
+                    <a class="navbar-brand" href="/">
+                                                <span>SSTAP Node</span>
+                                            </a>
+                    <div class="mobile-menu-right">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-mobile-icon"><i class="far fa-bars"></i></span>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse" id="main_nav">
+                        <ul class="navbar-nav">
+                                                        <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="#">关于</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">联系</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="site-breadcrumb" style="background: url(/assets/website/img/sstapnode/01.jpg)">
+            <div class="container">
+                <h1 class="breadcrumb-title">Vue 大量数据展示卡顿解决方案（长列表优化）</h1>
+                <ul class="breadcrumb-menu">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/news/">新闻资讯</a></li>
+                    <li class="active">正文</li>
+                </ul>
+            </div>
+        </div>
+        <div class="about-area py-120">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                          				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h2><a id="_0" rel="nofollow"></a>需求分析（长列表展示）</h2> <p>页面某处需要渲染<strong>1w+</strong> 条数据，并需要<strong>滚动展示</strong>，这时如果直接把这些数据渲染到页面上，会导致系统内存大量被占用，导致页面卡顿或崩溃</p> <p>我们都知道，每次 DOM 修改，浏览器都会重新计算元素布局，再重新渲染（回流 / 重绘）。如果数据量很大，页面计算时间就会加成，造成页面卡顿</p> <h2><a id="_6" rel="nofollow"></a>解决方案</h2> <ul> <li>根源：DOM 元素太多</li> <li>思路：限制元素数量 / 虚拟DOM</li> </ul> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/aa0e2a8f5b35a8cd875c3cced1bc4111.jpg" alt="Vue 大量数据展示卡顿解决方案（长列表优化）"></p> <p>后台数据格式：</p> <pre><code class="prism language-js"><span class="token punctuation">[</span><span class="token punctuation">{<!-- --></span>         checked<span class="token operator">:</span><span class="token number">0</span>，         data<span class="token operator">:</span><span class="token string">"xxx"</span>，         label<span class="token operator">:</span><span class="token string">"xxx"</span>，<span class="token punctuation">}</span><span class="token punctuation">]</span></code></pre> <p>Vue 中就有一个现成的轮子可以解决这个问题：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/Akryum/vue-virtual-scroller#recyclescroller"  rel="nofollow">vue-virtual-scroller</a></p> <ol> <li>安装<code>vue-virtual-scroller</code> 插件</li> </ol> <pre><code class="prism language-bash"><span class="token function">npm</span><span class="token function">install</span> --save vue-virtual-scroller</code></pre> <ol start="2"> <li>在<code>main.js</code> 引入</li> </ol> <pre><code class="prism language-js"><span class="token comment">// 注意：别忘了引用这个css</span><span class="token keyword">import</span><span class="token string">'vue-virtual-scroller/dist/vue-virtual-scroller.css'</span><span class="token keyword">import</span> Vue<span class="token keyword">from</span><span class="token string">"vue"</span><span class="token punctuation">;</span><span class="token keyword">import</span><span class="token punctuation">{<!-- --></span> RecycleScroller<span class="token punctuation">}</span><span class="token keyword">from</span><span class="token string">'vue-virtual-scroller'</span>  Vue<span class="token punctuation">.</span><span class="token function">component</span><span class="token punctuation">(</span><span class="token string">'RecycleScroller'</span><span class="token punctuation">,</span> RecycleScroller<span class="token punctuation">)</span></code></pre> <ol start="3"> <li>在组件里使用 <ul> <li><code>items</code>：呈现数据</li> <li><code>item-size</code>：呈现数据的大小 / 高度</li> <li><code>key-filed</code>：如果<code>items</code> 是对象，需要用这个做唯一标识</li> </ul> </li> </ol> <pre><code class="prism language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>RecycleScroller</span><span class="token style-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token style language-css"><span class="token property">height</span><span class="token punctuation">:</span> 200px<span class="token punctuation">;</span><span class="token property">overflow</span><span class="token punctuation">:</span> auto</span><span class="token punctuation">"</span></span></span><span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>scroller<span class="token punctuation">"</span></span><span class="token attr-name">:items</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>listItem<span class="token punctuation">"</span></span><span class="token attr-name">:item-size</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>20<span class="token punctuation">"</span></span><span class="token attr-name">key-field</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>data<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token attr-name">v-slot</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>{ item }<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-checkbox</span><span class="token attr-name">:key</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>item.data<span class="token punctuation">"</span></span><span class="token attr-name">:label</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>item.label<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>RecycleScroller</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript"><span class="token keyword">export</span><span class="token keyword">default</span><span class="token punctuation">{<!-- --></span><span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span><span class="token punctuation">{<!-- --></span>             listItem<span class="token operator">:</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span></code></pre> <h2><a id="_73" rel="nofollow"></a>总结</h2> <p>使用<code>vue-virtual-scroller</code> 插件展示大量数据，是可以比较流畅的渲染 / 滚动的</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-25465.htm">动物疫苗的种类及作用有哪些图片及名称（动物疫苗有哪几种）</a></p>
+                                        <p>下一个：<a href="/news/article-25925.htm">河南省动物申报检疫（河南省动物检疫申报平台电子出证）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-24457.htm" title="动物医院名字关键字大全图片及名字（动物医院牌子）">动物医院名字关键字大全图片及名字（动物医院牌子）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-28-free-high-speed-nodes.htm" title="SSTap Node节点订阅每天更新20M/S免费节点订阅链接">SSTap Node节点订阅每天更新20M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-20858.htm" title="中国兽药网价格表（兽药报价网）">中国兽药网价格表（兽药报价网）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-7-node-share-links.htm" title="SSTap Node节点订阅每天更新22.8M/S免费节点订阅链接">SSTap Node节点订阅每天更新22.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-21-free-node-subscribe-links.htm" title="SSTap Node节点订阅每天更新19M/S免费节点订阅链接">SSTap Node节点订阅每天更新19M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-18-free-high-speed-nodes.htm" title="SSTap Node节点订阅每天更新18.4M/S免费节点订阅链接">SSTap Node节点订阅每天更新18.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-11-node-share.htm" title="SSTap Node节点订阅每天更新18.7M/S免费节点订阅链接">SSTap Node节点订阅每天更新18.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-26-free-high-speed-nodes.htm" title="SSTap Node节点订阅每天更新22.4M/S免费节点订阅链接">SSTap Node节点订阅每天更新22.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-22225.htm" title="动物医院有什么科室啊（动物医院前景好吗）">动物医院有什么科室啊（动物医院前景好吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-23-node-share.htm" title="SSTap Node节点订阅每天更新23M/S免费节点订阅链接">SSTap Node节点订阅每天更新23M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">42</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+        <footer class="footer-area">
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 align-self-center">
+                        <p class="copyright-text">
+                            <a href="/">SSTap Node免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                    <div class="col-md-6 align-self-center">
+                        <ul class="footer-social">
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <a href="#" id="scroll-top"><i class="far fa-arrow-up"></i></a>
+    <script data-cfasync="false" src="/assets/website/js/frontend/sstapnode/email-decode.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/modernizr.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.appear.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.easing.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/counter-up.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery-ui.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.timepicker.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.nice-select.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
