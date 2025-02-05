@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sstapnode.github.io/news/article-50708.htm" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redis和Mysql如何保证数据一致性</title>
+        <meta name="description" content="今天分享一道一线互联网公司高频面试题。 “Redis和Mysql如何保证数据一致性”。 这个问题难倒了不少工作5年以上的程序员，难的不是问题本身，而是解决这个问题的思维模式。 下面来看看普通人和高手对" />
+        <link rel="icon" href="/assets/website/img/sstapnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SSTap Node免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sstapnode.github.io/news/article-50708.htm" />
+    <meta property="og:site_name" content="SSTap Node免费机场订阅节点官网" />
+    <meta property="og:title" content="Redis和Mysql如何保证数据一致性" />
+    <meta property="og:image" content="https://sstapnode.github.io/uploads/20241109/2409dbb8d68baa568413cf6deb7e7ae2.webp" />
+        <meta property="og:release_date" content="2025-02-03T09:27:57" />
+    <meta property="og:updated_time" content="2025-02-03T09:27:57" />
+        <meta property="og:description" content="今天分享一道一线互联网公司高频面试题。 “Redis和Mysql如何保证数据一致性”。 这个问题难倒了不少工作5年以上的程序员，难的不是问题本身，而是解决这个问题的思维模式。 下面来看看普通人和高手对" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Redis和Mysql如何保证数据一致性">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/all-fontawesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/animate.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/magnific-popup.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/jquery-ui.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/jquery.timepicker.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/nice-select.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RQLB5BXPJG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RQLB5BXPJG');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="loader-ripple">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <header class="header">
+        <div class="main-navigation">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container position-relative">
+                    <a class="navbar-brand" href="/">
+                                                <span>SSTap Node</span>
+                                            </a>
+                    <div class="mobile-menu-right">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-mobile-icon"><i class="far fa-bars"></i></span>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse" id="main_nav">
+                        <ul class="navbar-nav">
+                                                        <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="#">关于</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">联系</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="site-breadcrumb" style="background: url(/assets/website/img/sstapnode/01.jpg)">
+            <div class="container">
+                <h1 class="breadcrumb-title">Redis和Mysql如何保证数据一致性</h1>
+                <ul class="breadcrumb-menu">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/news/">新闻资讯</a></li>
+                    <li class="active">正文</li>
+                </ul>
+            </div>
+        </div>
+        <div class="about-area py-120">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<blockquote> <p>今天分享一道一线互联网公司高频面试题。<br /> “Redis和Mysql如何保证数据一致性”。<br /> 这个问题难倒了不少工作5年以上的程序员，难的不是问题本身，而是解决这个问题的思维模式。<br /> 下面来看看普通人和高手对于这个问题的回答。</p> </blockquote> </h1> <p>嗯....</p> <p>Redis和Mysql的数据一致性保证是吧？我想想。</p> <p>嗯 ， 就是，Mysql的数据发生变化以后，可以同步修改Redis里面的数据。</p> </h1> <p>一般情况下，Redis用来实现应用和数据库之间读操作的缓存层，主要目的是减少数据库IO，还可以提升数据的IO性能。</p> <p>这是它的整体架构。</p> <p>当应用程序需要去读取某个数据的时候，首先会先尝试去Redis里面加载，如果命中就直接返回。如果没有命中，就从数据库查询，查询到数据后再把这个数据缓存到Redis里面。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/d41ffe75e6d8b9a9b13475d1d0e09a1a.jpg" alt="Redis和Mysql如何保证数据一致性"></p> <p>在这样一个架构中，会出现一个问题，就是一份数据，同时保存在数据库和Redis里面，当数据发生变化的时候，需要同时更新Redis和Mysql，由于更新是有先后顺序的，并且它不像Mysql中的多表事务操作，可以满足ACID特性。所以就会出现数据一致性问题。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/70d15acd0600919a3ddcff51f115984e.jpg" alt="Redis和Mysql如何保证数据一致性"></p> <p>在这种情况下，能够选择的方法只有几种。</p> <ol> <li>先更新数据库，再更新缓存</li> <li>先删除缓存，再更新数据库</li> </ol> <p>如果先更新数据库，再更新缓存，如果缓存更新失败，就会导致数据库和Redis中的数据不一致。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/b147dd0cc3dadbe59468dfe99703e407.jpg" alt="Redis和Mysql如何保证数据一致性"></p> <p>如果是先删除缓存，再更新数据库，理想情况是应用下次访问Redis的时候，发现Redis里面的数据是空的，就从数据库加载保存到Redis里面，那么数据是一致的。但是在极端情况下，由于删除Redis和更新数据库这两个操作并不是原子的，所以这个过程如果有其他线程来访问，还是会存在数据不一致问题。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/f2b3104d8c8b9109d0c86e42202431bd.jpg" alt="Redis和Mysql如何保证数据一致性"></p> <p>所以，如果需要在极端情况下仍然保证Redis和Mysql的数据一致性，就只能采用最终一致性方案。</p> <p>比如基于RocketMQ的可靠性消息通信，来实现最终一致性。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/6a8f76c9761b2497dbde94bb50a4fb56.jpg" alt="Redis和Mysql如何保证数据一致性"></p> <p>还可以直接通过Canal组件，监控Mysql中binlog的日志，把更新后的数据同步到Redis里面。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/6791d527ad19d973b5fc2120b79183e5.jpg" alt="Redis和Mysql如何保证数据一致性"></p> <p>因为这里是基于最终一致性来实现的，如果业务场景不能接受数据的短期不一致性，那就不能使用这个方案来做。</p> <p>以上就是我对这个问题的理解。</p> </h1> <p>在面试的时候，面试官喜欢问各种没有场景化的纯粹的技术问题，比如说：“你这个最终一致性方案”还是会存在数据不一致的问题啊？那怎么解决？</p> <p>先不用慌，技术是为业务服务的，所以不同的业务场景，对于技术的选择和方案的设计都是不同的，所以这个时候，可以反问面试官，具体的业务场景是什么？</p> <p>一定要知道的是，一个技术方案不可能cover住所有的场景，明白了吗？</p> <p>本期的普通人VS高手面试系列就到这里结束了，喜欢的朋友记得点赞收藏。</p> <p>另外，最近从评论区收到的面试问题，都有点太泛了，比如：说一下mongoDB啊，说一下kafka啊、说一下并发啊，这些问题都是要几个小时才能彻底说清楚，建议大家提具体一点的问题。</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-50191.htm">宠物粮食店一年利润怎么样（宠物粮食店铺）</a></p>
+                                        <p>下一个：<a href="/news/article-50711.htm">买一个宠物狗粮食（买一点普通的狗粮多少钱一斤）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-32988.htm" title="b开头的男士衣服牌子(b开头的男装品牌有哪些)">b开头的男士衣服牌子(b开头的男装品牌有哪些)</a></li>
+                        <li class="py-2"><a href="/news/article-28712.htm" title="宠物粮食品牌名字4个字大全及图片（宠物粮食品牌名字4个字大全及图片及价格）">宠物粮食品牌名字4个字大全及图片（宠物粮食品牌名字4个字大全及图片及价格）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-8-free-high-speed-nodes.htm" title="SSTap Node节点订阅每天更新20M/S免费节点订阅链接地址分享">SSTap Node节点订阅每天更新20M/S免费节点订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-11-free-node-subscribe-links.htm" title="SSTap Node节点订阅每天更新21.9M/S免费节点订阅链接">SSTap Node节点订阅每天更新21.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-41727.htm" title="vue项目中设置Echarts图表的大小">vue项目中设置Echarts图表的大小</a></li>
+                        <li class="py-2"><a href="/news/article-42736.htm" title="Shell基础 — 6、Bash基本功能（输入输出重定向）">Shell基础 — 6、Bash基本功能（输入输出重定向）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-17-free-high-speed-nodes.htm" title="SSTap Node节点订阅每天更新22.1M/S免费节点订阅链接地址分享">SSTap Node节点订阅每天更新22.1M/S免费节点订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-37720.htm" title="动物医院运营管理工作内容怎么写（动物医院管理流程）">动物医院运营管理工作内容怎么写（动物医院管理流程）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-25-free-node-subscribe-links.htm" title="SSTap Node节点订阅每天更新21.5M/S免费节点订阅链接地址分享">SSTap Node节点订阅每天更新21.5M/S免费节点订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-21-free-high-speed-nodes.htm" title="SSTap Node节点订阅每天更新20.9M/S免费节点订阅链接地址分享">SSTap Node节点订阅每天更新20.9M/S免费节点订阅链接地址分享</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">15</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+        <footer class="footer-area">
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 align-self-center">
+                        <p class="copyright-text">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <a href="/">SSTap Node免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                    <div class="col-md-6 align-self-center">
+                        <ul class="footer-social">
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <a href="#" id="scroll-top"><i class="far fa-arrow-up"></i></a>
+    <script data-cfasync="false" src="/assets/website/js/frontend/sstapnode/email-decode.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/modernizr.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.appear.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.easing.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/counter-up.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery-ui.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.timepicker.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.nice-select.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

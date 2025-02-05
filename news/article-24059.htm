@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://sstapnode.github.io/news/article-24059.htm" />
@@ -9,6 +9,33 @@
     <title>C\C++ 中 malloc、calloc、realloc 函数的用法</title>
         <meta name="description" content="转自：https://www.jianshu.com/p/d6f209b8796d 前言 C\C++提供了底层的内存操作，为程序提供了强大的能力。在使用malloc() calloc() reallo" />
         <link rel="icon" href="/assets/website/img/sstapnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SSTap Node免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sstapnode.github.io/news/article-24059.htm" />
+    <meta property="og:site_name" content="SSTap Node免费机场订阅节点官网" />
+    <meta property="og:title" content="C\C++ 中 malloc、calloc、realloc 函数的用法" />
+    <meta property="og:image" content="https://sstapnode.github.io/uploads/20241109/3226612243617cafeba1b76a386262ff.webp" />
+        <meta property="og:release_date" content="2024-12-10T10:00:32" />
+    <meta property="og:updated_time" content="2024-12-10T10:00:32" />
+        <meta property="og:description" content="转自：https://www.jianshu.com/p/d6f209b8796d 前言 C\C++提供了底层的内存操作，为程序提供了强大的能力。在使用malloc() calloc() reallo" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="C\C++ 中 malloc、calloc、realloc 函数的用法">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
     <link rel="stylesheet" href="/assets/website/css/sstapnode/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/website/css/sstapnode/all-fontawesome.min.css">
     <link rel="stylesheet" href="/assets/website/css/sstapnode/animate.min.css">
@@ -94,16 +121,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-28710.htm" title="宠物用品批发进货渠道湖北地区有几个（湖北武汉宠物用品批发）">宠物用品批发进货渠道湖北地区有几个（湖北武汉宠物用品批发）</a></li>
-                        <li class="py-2"><a href="/news/article-24456.htm" title="美联众合动物医院加盟电话 美联众合动物医院是加盟吗">美联众合动物医院加盟电话 美联众合动物医院是加盟吗</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-16-free-node-subscribe-links.htm" title="SSTap Node节点订阅每天更新18.7M/S免费节点订阅链接">SSTap Node节点订阅每天更新18.7M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-22-node-share.htm" title="SSTap Node节点订阅每天更新20.6M/S免费节点订阅链接">SSTap Node节点订阅每天更新20.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-2-free-node-subscribe.htm" title="SSTap Node节点订阅每天更新22M/S免费节点订阅链接地址分享">SSTap Node节点订阅每天更新22M/S免费节点订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-46192.htm" title="动物防疫管理制度文本等材料（动物防疫管理要点）">动物防疫管理制度文本等材料（动物防疫管理要点）</a></li>
+                        <li class="py-2"><a href="/news/article-33937.htm" title="宠物领养网免费南京（南京最大的宠物店免费领养）">宠物领养网免费南京（南京最大的宠物店免费领养）</a></li>
                         <li class="py-2"><a href="/news/article-26855.htm" title="SpringBoot分组校验及自定义校验注解">SpringBoot分组校验及自定义校验注解</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-27-free-node-subscribe.htm" title="SSTap Node节点订阅每天更新22M/S免费节点订阅链接地址分享">SSTap Node节点订阅每天更新22M/S免费节点订阅链接地址分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-18-node-share-links.htm" title="SSTap Node节点订阅每天更新22.5M/S免费节点订阅链接">SSTap Node节点订阅每天更新22.5M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-21-free-node-subscribe-links.htm" title="SSTap Node节点订阅每天更新19M/S免费节点订阅链接">SSTap Node节点订阅每天更新19M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-27781.htm" title="动物医师证报考条件有哪些（动物医生执照的报考条件）">动物医师证报考条件有哪些（动物医生执照的报考条件）</a></li>
-                        <li class="py-2"><a href="/news/article-25465.htm" title="动物疫苗的种类及作用有哪些图片及名称（动物疫苗有哪几种）">动物疫苗的种类及作用有哪些图片及名称（动物疫苗有哪几种）</a></li>
+                        <li class="py-2"><a href="/news/article-27320.htm" title="《易学C++》第15章 再识对象">《易学C++》第15章 再识对象</a></li>
+                        <li class="py-2"><a href="/news/article-42736.htm" title="Shell基础 — 6、Bash基本功能（输入输出重定向）">Shell基础 — 6、Bash基本功能（输入输出重定向）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-19-free-high-speed-nodes.htm" title="SSTap Node节点订阅每天更新18.1M/S免费节点订阅链接地址分享">SSTap Node节点订阅每天更新18.1M/S免费节点订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-48145.htm" title="给猫咪驱虫一般多少钱一只（给猫驱虫要多少钱）">给猫咪驱虫一般多少钱一只（给猫驱虫要多少钱）</a></li>
+                        <li class="py-2"><a href="/news/article-50191.htm" title="宠物粮食店一年利润怎么样（宠物粮食店铺）">宠物粮食店一年利润怎么样（宠物粮食店铺）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-12-free-high-speed-nodes.htm" title="SSTap Node节点订阅每天更新21.1M/S免费节点订阅链接地址分享">SSTap Node节点订阅每天更新21.1M/S免费节点订阅链接地址分享</a></li>
                     </ul>
     </div>
 </div>
@@ -115,7 +142,10 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
