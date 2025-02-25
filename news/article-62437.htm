@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sstapnode.github.io/news/article-62437.htm" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pom.xml 报错org.apache.maven.plugin.war.WarMojo的解决办法</title>
+        <meta name="description" content="&lt;plugin&gt; 				&lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt; 				&lt;artifactId&gt;mav" />
+        <link rel="icon" href="/assets/website/img/sstapnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SSTap Node免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sstapnode.github.io/news/article-62437.htm" />
+    <meta property="og:site_name" content="SSTap Node免费机场订阅节点官网" />
+    <meta property="og:title" content="pom.xml 报错org.apache.maven.plugin.war.WarMojo的解决办法" />
+    <meta property="og:image" content="https://sstapnode.github.io/uploads/20241109/1141e30f57166edb7ef12546ad611db5.webp" />
+        <meta property="og:release_date" content="2025-02-24T09:18:13" />
+    <meta property="og:updated_time" content="2025-02-24T09:18:13" />
+        <meta property="og:description" content="&lt;plugin&gt; 				&lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt; 				&lt;artifactId&gt;mav" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="pom.xml 报错org.apache.maven.plugin.war.WarMojo的解决办法">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/all-fontawesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/animate.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/magnific-popup.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/jquery-ui.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/jquery.timepicker.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/nice-select.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RQLB5BXPJG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RQLB5BXPJG');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="loader-ripple">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <header class="header">
+        <div class="main-navigation">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container position-relative">
+                    <a class="navbar-brand" href="/">
+                                                <span>SSTap Node</span>
+                                            </a>
+                    <div class="mobile-menu-right">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-mobile-icon"><i class="far fa-bars"></i></span>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse" id="main_nav">
+                        <ul class="navbar-nav">
+                                                        <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/client.htm">客户端</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="site-breadcrumb" style="background: url(/assets/website/img/sstapnode/01.jpg)">
+            <div class="container">
+                <h1 class="breadcrumb-title">pom.xml 报错org.apache.maven.plugin.war.WarMojo的解决办法</h1>
+                <ul class="breadcrumb-menu">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/news/">新闻资讯</a></li>
+                    <li class="active">正文</li>
+                </ul>
+            </div>
+        </div>
+        <div class="about-area py-120">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <pre><code>&lt;plugin&gt; 				&lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt; 				&lt;artifactId&gt;maven-var-plugin&lt;/artifactId&gt; 				&lt;version&gt;2.2&lt;/version&gt; 			&lt;/plugin&gt;</code></pre> <p>&nbsp;</p> <p>&nbsp;出现如下这种错误， 就是jar包版本冲突， 如上所示， 将冲突的jar包定义， 升级或者降级版本就好 了</p> <pre><code>[INFO] --- maven-war-plugin:2.2:war (default-war) @ ams-web --- [WARNING] Error injecting: org.apache.maven.plugin.war.WarMojo java.lang.TypeNotPresentException: Type org.apache.maven.plugin.war.WarMojo not present 	at org.eclipse.sisu.space.URLClassSpace.loadClass(URLClassSpace.java:111) 	at org.eclipse.sisu.space.NamedClass.load(NamedClass.java:46) 	at org.eclipse.sisu.space.AbstractDeferredClass.get(AbstractDeferredClass.java:48) 	at com.google.inject.internal.ProviderInternalFactory.provision(ProviderInternalFactory.java:86) 	at com.google.inject.internal.InternalFactoryToInitializableAdapter.provision(InternalFactoryToInitializableAdapter.java:54) 	at com.google.inject.internal.ProviderInternalFactory$1.call(ProviderInternalFactory.java:70) 	at com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision(ProvisionListenerStackCallback.java:113) 	at org.eclipse.sisu.bean.BeanScheduler$Activator.onProvision(BeanScheduler.java:176) 	at com.google.inject.internal.ProvisionListenerStackCallback$Provision.provision(ProvisionListenerStackCallback.java:122) 	at com.google.inject.internal.ProvisionListenerStackCallback.provision(ProvisionListenerStackCallback.java:68) 	at com.google.inject.internal.ProviderInternalFactory.circularGet(ProviderInternalFactory.java:68) 	at com.google.inject.internal.InternalFactoryToInitializableAdapter.get(InternalFactoryToInitializableAdapter.java:46) 	at com.google.inject.internal.InjectorImpl$2$1.call(InjectorImpl.java:1009) 	at com.google.inject.internal.InjectorImpl.callInContext(InjectorImpl.java:1059) 	at com.google.inject.internal.InjectorImpl$2.get(InjectorImpl.java:1005) 	at com.google.inject.Scopes$1$1.get(Scopes.java:59) 	at org.eclipse.sisu.inject.LazyBeanEntry.getValue(LazyBeanEntry.java:82) 	at org.eclipse.sisu.plexus.LazyPlexusBean.getValue(LazyPlexusBean.java:51) 	at org.codehaus.plexus.DefaultPlexusContainer.lookup(DefaultPlexusContainer.java:263) 	at org.codehaus.plexus.DefaultPlexusContainer.lookup(DefaultPlexusContainer.java:255) 	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getConfiguredMojo(DefaultMavenPluginManager.java:464) 	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:119) 	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:208) 	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:153) 	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:145) 	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:116) 	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:80) 	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:51) 	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:120) 	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:355) 	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:155) 	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:584) 	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:216) 	at org.apache.maven.cli.MavenCli.main(MavenCli.java:160) 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) 	at java.lang.reflect.Method.invoke(Method.java:483) 	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289) 	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229) 	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415) 	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356) Caused by: java.lang.ClassNotFoundException: org.apache.maven.plugin.war.WarMojo 	at org.codehaus.plexus.classworlds.strategy.SelfFirstStrategy.loadClass(SelfFirstStrategy.java:50) 	at org.codehaus.plexus.classworlds.realm.ClassRealm.unsynchronizedLoadClass(ClassRealm.java:271) 	at org.codehaus.plexus.classworlds.realm.ClassRealm.loadClass(ClassRealm.java:247) 	at org.codehaus.plexus.classworlds.realm.ClassRealm.loadClass(ClassRealm.java:239) 	at org.eclipse.sisu.space.URLClassSpace.loadClass(URLClassSpace.java:107) 	... 41 more</code></pre> <p>&nbsp;</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-61853.htm">普通人怎么考兽医证难不难呀（怎么考兽医资格证需要什么条件）</a></p>
+                                        <p>下一个：<a href="/news/article-62438.htm">算卦找猫在线（猫丢了找回来百试百灵的方法）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-11-11-free-node-subscribe-links.htm" title="SSTap Node节点订阅每天更新21.9M/S免费节点订阅链接">SSTap Node节点订阅每天更新21.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-58365.htm" title="求购兽药信息网（兽药求购信息平台有哪些）">求购兽药信息网（兽药求购信息平台有哪些）</a></li>
+                        <li class="py-2"><a href="/news/article-47653.htm" title="告别jodatime!拥抱Java8日期时间类LocalDate、LocalDateTime详解">告别jodatime!拥抱Java8日期时间类LocalDate、LocalDateTime详解</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-25-free-node-subscribe-links.htm" title="SSTap Node节点订阅每天更新21.5M/S免费节点订阅链接地址分享">SSTap Node节点订阅每天更新21.5M/S免费节点订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-30-node-share-links.htm" title="SSTap Node节点订阅每天更新19.3M/S免费节点订阅链接地址分享">SSTap Node节点订阅每天更新19.3M/S免费节点订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-22-free-high-speed-nodes.htm" title="SSTap Node节点订阅每天更新20.9M/S免费节点订阅链接地址分享">SSTap Node节点订阅每天更新20.9M/S免费节点订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-48145.htm" title="给猫咪驱虫一般多少钱一只（给猫驱虫要多少钱）">给猫咪驱虫一般多少钱一只（给猫驱虫要多少钱）</a></li>
+                        <li class="py-2"><a href="/news/article-30601.htm" title="宠物粮食商标名字大全（宠物粮食品牌起名大全）">宠物粮食商标名字大全（宠物粮食品牌起名大全）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-14-free-node-subscribe-links.htm" title="SSTap Node节点订阅每天更新19.2M/S免费节点订阅链接">SSTap Node节点订阅每天更新19.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-53894.htm" title="猫抓了一下红了没出血（猫抓了红肿没出血怎么办）">猫抓了一下红了没出血（猫抓了红肿没出血怎么办）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">75</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+        <footer class="footer-area">
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 align-self-center">
+                        <p class="copyright-text">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <a href="/">SSTap Node免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                    <div class="col-md-6 align-self-center">
+                        <ul class="footer-social">
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <a href="#" id="scroll-top"><i class="far fa-arrow-up"></i></a>
+    <script data-cfasync="false" src="/assets/website/js/frontend/sstapnode/email-decode.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/modernizr.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.appear.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.easing.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/counter-up.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery-ui.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.timepicker.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.nice-select.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
