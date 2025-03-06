@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sstapnode.github.io/news/article-67979.htm" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>前端之vue的vuex插件(多组件共享数据)</title>
+        <meta name="description" content="vuex插件  vuex插件   实现多组件共享数据的方法   方法一:全局事件中线(乱) 方法二:vuex实现多数组共享数据√     vuex工作原理 vue2中使用vuex小结: vue3搭建v" />
+        <link rel="icon" href="/assets/website/img/sstapnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SSTap Node免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sstapnode.github.io/news/article-67979.htm" />
+    <meta property="og:site_name" content="SSTap Node免费机场订阅节点官网" />
+    <meta property="og:title" content="前端之vue的vuex插件(多组件共享数据)" />
+    <meta property="og:image" content="https://sstapnode.github.io/uploads/20241109/373dae1fb26a7258e334605b088bae69.webp" />
+        <meta property="og:release_date" content="2025-03-05T11:12:39" />
+    <meta property="og:updated_time" content="2025-03-05T11:12:39" />
+        <meta property="og:description" content="vuex插件  vuex插件   实现多组件共享数据的方法   方法一:全局事件中线(乱) 方法二:vuex实现多数组共享数据√     vuex工作原理 vue2中使用vuex小结: vue3搭建v" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="前端之vue的vuex插件(多组件共享数据)">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/all-fontawesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/animate.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/magnific-popup.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/jquery-ui.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/jquery.timepicker.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/nice-select.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RQLB5BXPJG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RQLB5BXPJG');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="loader-ripple">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <header class="header">
+        <div class="main-navigation">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container position-relative">
+                    <a class="navbar-brand" href="/">
+                                                <span>SSTap Node</span>
+                                            </a>
+                    <div class="mobile-menu-right">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-mobile-icon"><i class="far fa-bars"></i></span>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse" id="main_nav">
+                        <ul class="navbar-nav">
+                                                        <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/client.htm">客户端</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="site-breadcrumb" style="background: url(/assets/website/img/sstapnode/01.jpg)">
+            <div class="container">
+                <h1 class="breadcrumb-title">前端之vue的vuex插件(多组件共享数据)</h1>
+                <ul class="breadcrumb-menu">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/news/">新闻资讯</a></li>
+                    <li class="active">正文</li>
+                </ul>
+            </div>
+        </div>
+        <div class="about-area py-120">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <div class="toc"> <h3>vuex插件</h3> <ul> <li><a href="#vuex_3" rel="nofollow">vuex插件</a></li> <li> <ul> <li><a href="#_9" rel="nofollow">实现多组件共享数据的方法</a></li> <li> <ul> <li><a href="#_10" rel="nofollow">方法一:全局事件中线(乱)</a></li> <li><a href="#vuex_12" rel="nofollow">方法二:vuex实现多数组共享数据√</a></li> </ul> </li> </ul> </li> <li><a href="#vuex_18" rel="nofollow">vuex工作原理</a></li> <li><a href="#vue2vuex_27" rel="nofollow">vue2中使用vuex小结:</a></li> <li><a href="#vue3vuex_33" rel="nofollow">vue3搭建vuex环境</a></li> <li> <ul> <li><a href="#_34" rel="nofollow">步骤总览</a></li> <li><a href="#vuex_37" rel="nofollow">简单vuex实例</a></li> <li><a href="#getters_134" rel="nofollow">getters的使用</a></li> </ul> </li> </ul> </div> </h1> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/6840d4c4f6fd200a4277ca627b5b3607.jpg" alt="前端之vue的vuex插件(多组件共享数据)"></p> <p><strong>使用条件</strong><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/095a97647391928e29048b9be3c54e81.jpg" alt="前端之vue的vuex插件(多组件共享数据)"></p> <h2><a id="_9" rel="nofollow"></a>实现多组件共享数据的方法</h2> <h3><a id="_10" rel="nofollow"></a>方法一:全局事件中线(乱)</h3> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/fc5b311171463c298a4c08d1ed375a22.jpg" alt="前端之vue的vuex插件(多组件共享数据)"></p> <h3><a id="vuex_12" rel="nofollow"></a>方法二:vuex实现多数组共享数据√</h3> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/965ae5de38886a1f4bc16733a1d76e18.jpg" alt="前端之vue的vuex插件(多组件共享数据)"></p> </h1> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/aaff9cdbc7badf769be730fba755f49d.jpg" alt="前端之vue的vuex插件(多组件共享数据)"><br /> 如下图, 如果知道自己要做什么, 也知道数据可以跳过上方API<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/d55d57fc0d9a2a737a56b43d677ac028.jpg" alt="前端之vue的vuex插件(多组件共享数据)"><br /> 如下图，dispatch、commit方法都是store的。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/c0534986b10666e1be02c162160b74ed.jpg" alt="前端之vue的vuex插件(多组件共享数据)"></p> </h1> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/d3bea212206363f38f852e6c90e55ac4.jpg" alt="前端之vue的vuex插件(多组件共享数据)"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/51f9d5a53a0a60596236c0bd0f8aa9d9.jpg" alt="前端之vue的vuex插件(多组件共享数据)"><br /> 基本使用<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/5a01e989c0dabb47f35fdf9a72dcf6a5.jpg" alt="前端之vue的vuex插件(多组件共享数据)"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/b6491d401a7553094a53ed5d00a82761.jpg" alt="前端之vue的vuex插件(多组件共享数据)"></p> </h1> <h2><a id="_34" rel="nofollow"></a>步骤总览</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/e1d97e1d4b5b0cdc54968c4c4df9a31d.jpg" alt="前端之vue的vuex插件(多组件共享数据)"></p> <h2><a id="vuex_37" rel="nofollow"></a>简单vuex实例</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/d55d57fc0d9a2a737a56b43d677ac028.jpg" alt="前端之vue的vuex插件(多组件共享数据)"><br /> state用于存储数据<br /> getters 加工数据</p> <p>1.命令行安装vuex<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/3065d367fcf5128f0c4baf7c06a33904.jpg" alt="前端之vue的vuex插件(多组件共享数据)"><br /> npm i vuex@版本<br /> –save放入依赖</p> <pre><code>npm i vuex@4 --save</code></pre> <p>2.在<code>main.js</code>中引入并使用<code>vuex</code>创建一个<code>store</code>实例</p> <pre><code class="prism language-javascript"><span class="token comment">/**  * 本文件是整个项目的入口文件  */</span><span class="token keyword">import</span><span class="token punctuation">{<!-- --></span> createApp<span class="token punctuation">}</span><span class="token keyword">from</span><span class="token string">'vue'</span><span class="token keyword">import</span> App<span class="token keyword">from</span><span class="token string">'./App.vue'</span><span class="token comment">// 1.引入vuex</span><span class="token keyword">import</span><span class="token punctuation">{<!-- --></span> createStore<span class="token punctuation">}</span><span class="token keyword">from</span><span class="token string">"vuex"</span><span class="token punctuation">;</span><span class="token comment">// 2.创建一个新的store</span><span class="token keyword">const</span> store<span class="token operator">=</span><span class="token function">createStore</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span><span class="token function">state</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span><span class="token punctuation">{<!-- --></span><span class="token literal-property property">sum</span><span class="token operator">:</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token literal-property property">actions</span><span class="token operator">:</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token literal-property property">mutations</span><span class="token operator">:</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token keyword">const</span> app<span class="token operator">=</span><span class="token function">createApp</span><span class="token punctuation">(</span>App<span class="token punctuation">)</span><span class="token comment">// 3.将store实例作为插件安装</span> app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>store<span class="token punctuation">)</span>  app<span class="token punctuation">.</span><span class="token function">mount</span><span class="token punctuation">(</span><span class="token string">'#app'</span><span class="token punctuation">)</span></code></pre> <p>3.在模板中使用</p> <pre><code class="prism language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span>当前求和为:{<!-- -->{ $store.state.sum }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span></code></pre> <p>4.发送到actions进行处理</p> <pre><code class="prism language-javascript"><span class="token literal-property property">methods</span><span class="token operator">:</span><span class="token punctuation">{<!-- --></span><span class="token function">increment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">this</span><span class="token punctuation">.</span>$store<span class="token punctuation">.</span><span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token string">"increment"</span><span class="token punctuation">,</span><span class="token keyword">this</span><span class="token punctuation">.</span>selectNum<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">}</span></code></pre> <p>4.在<strong>actions</strong>阶段, 用<code>context</code>参数调用commit进入<code>mutations</code>阶段,注意第一参数全部大写.</p> <pre><code class="prism language-javascript"><span class="token literal-property property">actions</span><span class="token operator">:</span><span class="token punctuation">{<!-- --></span><span class="token function">increment</span><span class="token punctuation">(</span><span class="token parameter">context<span class="token punctuation">,</span>value</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>       context<span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'INCREMENT'</span><span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span></code></pre> <p><strong>如果跳过<code>actions</code>阶段,</strong><br /> 用<code>commit</code>直接进入<strong>mutations</strong>阶段<br /><strong><code>commit</code>的第一个参数要全大写</strong></p> <pre><code class="prism language-javascript"><span class="token literal-property property">methods</span><span class="token operator">:</span><span class="token punctuation">{<!-- --></span><span class="token function">increment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">this</span><span class="token punctuation">.</span>$store<span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">"INCREMENT"</span><span class="token punctuation">,</span><span class="token keyword">this</span><span class="token punctuation">.</span>selectNum<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">,</span></code></pre> <p>5.在<code>mutations</code>内编写对应函数</p> <pre><code class="prism language-javascript"><span class="token keyword">const</span> store<span class="token operator">=</span><span class="token function">createStore</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span><span class="token function">state</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span><span class="token punctuation">{<!-- --></span><span class="token literal-property property">sum</span><span class="token operator">:</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token literal-property property">actions</span><span class="token operator">:</span><span class="token punctuation">{<!-- --></span><span class="token comment">// 本次简单实例不用actions, 直接进行commit</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token literal-property property">mutations</span><span class="token operator">:</span><span class="token punctuation">{<!-- --></span><span class="token constant">INCREMENT</span><span class="token punctuation">(</span><span class="token parameter">state<span class="token punctuation">,</span>value</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>       state<span class="token punctuation">.</span>sum<span class="token operator">+=</span>value<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre> <h2><a id="getters_134" rel="nofollow"></a>getters的使用</h2> <p>vuex实例中的getters用来对state内的数据进行<strong>加工使用</strong><br /> 可以类比data和computed<br /> 1.在<code>main.js</code>中的vuex实例(即store)配置</p> <pre><code class="prism language-javascript"><span class="token keyword">const</span> store<span class="token operator">=</span><span class="token function">createStore</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span><span class="token function">state</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span><span class="token punctuation">{<!-- --></span><span class="token literal-property property">sum</span><span class="token operator">:</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token literal-property property">actions</span><span class="token operator">:</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token literal-property property">mutations</span><span class="token operator">:</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token literal-property property">getters</span><span class="token operator">:</span><span class="token punctuation">{<!-- --></span><span class="token function">bigSum</span><span class="token punctuation">(</span><span class="token parameter">state</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span> state<span class="token punctuation">.</span>sum<span class="token operator">*</span><span class="token number">10</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre> <p>2.在模板中使用<code>{<!-- -->{ $store.getters.bigSum }}</code></p> <pre><code class="prism language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span>当前求和为:{<!-- -->{ $store.state.sum }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">&gt;</span></span>当前求和扩大十倍后为:{<!-- -->{ $store.getters.bigSum }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span></code></pre> <p>小结:<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220609/f33bead8fe24e9b93b6dc41a4cab155f.jpg" alt="前端之vue的vuex插件(多组件共享数据)"></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-67370.htm">南宁哪里有免费领养宠物的（南宁哪里可以领养宠物猫）</a></p>
+                                        <p>下一个：<a href="/news/article-67983.htm">全国兽药50强企业名单公布时间（全国兽药50强企业名单公布时间最新）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-55559.htm" title="被猫抓伤6天了打针还有用吗（被猫抓6天了猫没事）">被猫抓伤6天了打针还有用吗（被猫抓6天了猫没事）</a></li>
+                        <li class="py-2"><a href="/news/article-45719.htm" title="vue解决vant组件样式失效问题">vue解决vant组件样式失效问题</a></li>
+                        <li class="py-2"><a href="/news/article-37289.htm" title="动物防疫补贴政策的困难（动物防疫经费使用实施方案）">动物防疫补贴政策的困难（动物防疫经费使用实施方案）</a></li>
+                        <li class="py-2"><a href="/news/article-51236.htm" title="想开一家宠物医院怎么开（如何开个宠物医院）">想开一家宠物医院怎么开（如何开个宠物医院）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-31-free-node-subscribe.htm" title="SSTap Node节点订阅每天更新21.5M/S免费节点订阅链接地址分享">SSTap Node节点订阅每天更新21.5M/S免费节点订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-64250.htm" title="吉泰官网（吉泰集团）">吉泰官网（吉泰集团）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-22-free-high-speed-nodes.htm" title="SSTap Node节点订阅每天更新20.9M/S免费节点订阅链接地址分享">SSTap Node节点订阅每天更新20.9M/S免费节点订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-42230.htm" title="一篇文章带你彻底吃透Spring">一篇文章带你彻底吃透Spring</a></li>
+                        <li class="py-2"><a href="/news/article-53894.htm" title="猫抓了一下红了没出血（猫抓了红肿没出血怎么办）">猫抓了一下红了没出血（猫抓了红肿没出血怎么办）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-11-free-high-speed-nodes.htm" title="SSTap Node节点订阅每天更新20.9M/S免费节点订阅链接地址分享">SSTap Node节点订阅每天更新20.9M/S免费节点订阅链接地址分享</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">18</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+        <footer class="footer-area">
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 align-self-center">
+                        <p class="copyright-text">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <a href="/">SSTap Node免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                    <div class="col-md-6 align-self-center">
+                        <ul class="footer-social">
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <a href="#" id="scroll-top"><i class="far fa-arrow-up"></i></a>
+    <script data-cfasync="false" src="/assets/website/js/frontend/sstapnode/email-decode.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/modernizr.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.appear.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.easing.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/counter-up.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery-ui.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.timepicker.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.nice-select.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
