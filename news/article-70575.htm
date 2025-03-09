@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sstapnode.github.io/news/article-70575.htm" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>spring集成mongodb及基础使用</title>
+        <meta name="description" content="一、在spring框架中启用mongo db spring集成mongodb可以通过java和xml两种方式进行集成，下面是xml方式： &lt;beans xmlns="http://www.spr" />
+        <link rel="icon" href="/assets/website/img/sstapnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SSTap Node免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sstapnode.github.io/news/article-70575.htm" />
+    <meta property="og:site_name" content="SSTap Node免费机场订阅节点官网" />
+    <meta property="og:title" content="spring集成mongodb及基础使用" />
+    <meta property="og:image" content="https://sstapnode.github.io/uploads/20241109/2409dbb8d68baa568413cf6deb7e7ae2.webp" />
+        <meta property="og:release_date" content="2025-03-09T09:47:17" />
+    <meta property="og:updated_time" content="2025-03-09T09:47:17" />
+        <meta property="og:description" content="一、在spring框架中启用mongo db spring集成mongodb可以通过java和xml两种方式进行集成，下面是xml方式： &lt;beans xmlns="http://www.spr" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="spring集成mongodb及基础使用">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/all-fontawesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/animate.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/magnific-popup.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/jquery-ui.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/jquery.timepicker.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/nice-select.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RQLB5BXPJG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RQLB5BXPJG');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="loader-ripple">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <header class="header">
+        <div class="main-navigation">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container position-relative">
+                    <a class="navbar-brand" href="/">
+                                                <span>SSTap Node</span>
+                                            </a>
+                    <div class="mobile-menu-right">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-mobile-icon"><i class="far fa-bars"></i></span>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse" id="main_nav">
+                        <ul class="navbar-nav">
+                                                        <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/client.htm">客户端</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="site-breadcrumb" style="background: url(/assets/website/img/sstapnode/01.jpg)">
+            <div class="container">
+                <h1 class="breadcrumb-title">spring集成mongodb及基础使用</h1>
+                <ul class="breadcrumb-menu">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/news/">新闻资讯</a></li>
+                    <li class="active">正文</li>
+                </ul>
+            </div>
+        </div>
+        <div class="about-area py-120">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <h2>一、在spring框架中启用mongo db</h2> <p>spring集成mongodb可以通过java和xml两种方式进行集成，下面是xml方式：</p> <pre><code class="language-XML">&lt;beans xmlns="http://www.springframework.org/schema/beans"        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"        xmlns:mongo="http://www.springframework.org/schema/data/mongo"        xmlns:context="http://www.springframework.org/schema/context"        xsi:schemaLocation="http://www.springframework.org/schema/beans         http://www.springframework.org/schema/beans/spring-beans-4.1.xsd          http://www.springframework.org/schema/data/mongo          http://www.springframework.org/schema/data/mongo/spring-mongo.xsd"         &gt;          &lt;!--启用repository扫描功能--&gt;         &lt;mongo:repositories base-package="com.qcsy"/&gt;          &lt;!--定义用于访问 MongoDB 的 MongoClient 实例--&gt;         &lt;mongo:mongo-client id="mongoClient" host="${mongo.host}" port="${mongo.port}"&gt;                 &lt;mongo:client-options                         connections-per-host="${mongo.connectionsPerHost}"                         threads-allowed-to-block-for-connection-multiplier="${mongo.threadsAllowedToBlockForConnectionMultiplier}"                         connect-timeout="${mongo.connectTimeout}"                         max-wait-time="${mongo.maxWaitTime}"                         socket-keep-alive="${mongo.socketKeepAlive}"                         socket-timeout="${mongo.socketTimeout}"                 /&gt;         &lt;/mongo:mongo-client&gt;         &lt;!--定义用于连接到数据库的连接工厂--&gt;         &lt;mongo:db-factory dbname="${mongo.dbname}" mongo-ref="mongoClient"/&gt;          &lt;!--实际操作 mongodb 的 template,在代码中注入。注意如果此处id不叫mongoTemplate。可能会导致使用Repositry的时候找不到，需要特殊映射--&gt;         &lt;bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate"&gt;                 &lt;constructor-arg name="mongoDbFactory" ref="mongoDbFactory"/&gt;         &lt;/bean&gt;          &lt;/beans&gt;</code></pre> <p>配置文件：</p> <pre><code>#mongo db的配置，如果不启用则不需要配置 mongo.host=localhost mongo.port=27017 # 数据库名称. 默认是'db'. mongo.dbname=test # 每个主机允许的连接数 mongo.connectionsPerHost=10 # 线程队列数，它和上面connectionsPerHost值相乘的结果就是线程队列最大值。如果连接线程排满了队列就会抛出异常 mongo.threadsAllowedToBlockForConnectionMultiplier=5 # 连接超时的毫秒 0是默认值且无限大。 mongo.connectTimeout=1000 # 最大等待连接的线程阻塞时间 默认是120000 ms (2 minutes). mongo.maxWaitTime=1500 # 保持活动标志，控制是否有套接字保持活动超时 官方默认为true 且不建议禁用 mongo.socketKeepAlive=true # 用于群集心跳的连接的套接字超时。 mongo.socketTimeout=1500</code></pre> <h2>二、映射模型实体</h2> <pre><code class="language-java">@Document public class User {     @Id     private String userid;     @Field("userinfo")     private String username;     private String userpassword;     ......get\set方法........ }</code></pre> <p>@Document与@Entity类似，表明是一个实体，@Id表明是主键</p> <p>其他的Spring data mongoDB注解还有：</p> <p><strong>@Document</strong></p> <p>把一个java类声明为mongodb的文档，可以通过collection参数指定这个类对应的文档。@Document(collection="mongodb 对应 collection 名")</p> <p><strong>@Id</strong></p> <p>文档的唯一标识，在mongodb中为ObjectId，它是唯一的</p> <p><strong>@Indexed</strong></p> <p>声明该字段需要索引，建索引可以大大的提高查询效率。</p> <p><strong>@CompoundIndex</strong></p> <p>复合索引的声明，建复合索引可以有效地提高多字段的查询效率。</p> <p>&nbsp;</p> <p><strong>@Field</strong></p> <p>给映射存储到 mongodb 的字段取别名</p> <p>&nbsp;</p> <p><strong>@Dbref</strong></p> <p>标识引用其他文档，这个文档有可能在另外的数据库中</p> <p>&nbsp;</p> <p><strong>@Version</strong></p> <p>标识改属性作为版本控制</p> <p>&nbsp;</p> <p><strong>@Transient</strong></p> <p>默认情况下所有的私有字段都映射到文档，该注解标识的字段从存储在数据库中的字段列中排除（即该字段不保存到 mongodb）</p> <p>&nbsp;</p> <h2>三、使用MongoTemplate访问mongodb</h2> <pre><code class="language-java">@Autowired private MongoOperations mongoOperations;</code></pre> <p>&nbsp;</p> <p>在这里，我们将MongoTemplate注入到MongoOperations ，因为MongoTemplate是MongoOperations 实现类，使用接口注入是一个好的做法</p> <pre><code class="language-java">/**  * 保存数据  */ @Override public void templateSave() {     User user=new User();     user.setUserid("001");     user.setUsername("测试");     user.setUserpassword("11");     mongoOperations.save(user,"user"); }  /**  * 更新数据  */ @Override public void templateUpdate() {     //where跟的是字段，is相当于等于     Query query=Query.query(Criteria.where("userid").is("001"));     mongoOperations.updateFirst(query, Update.update("username","修改"),User.class); } /**  * 查询数据  * @return  */ @Override public User templateQuery() {     Query query=Query.query(Criteria.where("userid").is("001"));     return   mongoOperations.find(query,User.class).get(0); }</code></pre> <p>&nbsp;</p> <h2>四、使用MongoDb Repository访问mongodb</h2> <ul> <li><strong>与spring data jpa类似，spring data mongodb同样有类似的操作方式，实现一个接口继承MongoRepository&lt;T,id&gt;：</strong></li> </ul> <pre><code class="language-java">public interface MongoDemoRepository extends MongoRepository&lt;User,String&gt; {   User findFirstByUsername(String username);  }</code></pre> <p>&nbsp;</p> <p>通过继承接口，spring data会自动实现基本的crud方法，同时，还支持通过方法的形式扩展自己想要的方法，例如通过以下关键词扩展(图片在网上找的)：</p> <p>自定义查询方法，格式为“find/get/readBy+字段名+方法后缀”，方法传进的参数即字段的值。</p> <p>支持的部分常用方法后缀有：</p> <p><img decoding="async" alt="img" src="http://img.555519.xyz/uploads/20230119/4991dfccbb3b06a4bf4d551b9cdf8cbc.jpg"></p> <p><img decoding="async" alt="img" src="http://img.555519.xyz/uploads/20230119/e2ac88a65cb3d09c71268e1d808565a9.jpg"></p> <p>&nbsp;</p> <p>&nbsp;</p> <ul> <li><strong>除此之外，与spring data jpa 类似，它也支持@Query的方式自定义指定。但它不是指定的sql而是一个json .</strong></li> </ul> <pre><code class="language-java">@Query("{'userpassid':'qq','username':?0}")  List&lt;User&gt; findUsername(String username);</code></pre> <p>&nbsp;</p> <ul> <li><strong>它同样可以通过接口的方式和spring data jpa 类似实现mongotemplate与repository混合方法。此处不做介绍</strong></li> </ul> <p>&nbsp;</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-69933.htm">速冻黑椒鸡块怎么炸(冷冻黑椒鸡块炸多长时间)</a></p>
+                                        <p>下一个：<a href="/news/article-70576.htm">给动物打的疫苗是什么意思（给动物打疫苗的官方部门）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-25-free-node-subscribe.htm" title="SSTap Node节点订阅每天更新22.3M/S免费节点订阅链接地址分享">SSTap Node节点订阅每天更新22.3M/S免费节点订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-70575.htm" title="spring集成mongodb及基础使用">spring集成mongodb及基础使用</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-10-node-share.htm" title="SSTap Node节点订阅每天更新18.7M/S免费节点订阅链接地址分享">SSTap Node节点订阅每天更新18.7M/S免费节点订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-65478.htm" title="中国农大动物医院预约（中国农大动物医院的咨询电话）">中国农大动物医院预约（中国农大动物医院的咨询电话）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-10-free-high-speed-nodes.htm" title="SSTap Node节点订阅每天更新18.7M/S免费节点订阅链接地址分享">SSTap Node节点订阅每天更新18.7M/S免费节点订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-27-free-high-speed-nodes.htm" title="SSTap Node节点订阅每天更新18.4M/S免费节点订阅链接地址分享">SSTap Node节点订阅每天更新18.4M/S免费节点订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-41234.htm" title="动物疫苗新闻（动物疫苗新规）">动物疫苗新闻（动物疫苗新规）</a></li>
+                        <li class="py-2"><a href="/news/article-59515.htm" title="猫根本不必打三联多少钱（猫咪需要打三联多少钱）">猫根本不必打三联多少钱（猫咪需要打三联多少钱）</a></li>
+                        <li class="py-2"><a href="/news/article-63632.htm" title="宠物粮食店铺起名大全 宠物粮食店铺起名大全集">宠物粮食店铺起名大全 宠物粮食店铺起名大全集</a></li>
+                        <li class="py-2"><a href="/news/article-42736.htm" title="Shell基础 — 6、Bash基本功能（输入输出重定向）">Shell基础 — 6、Bash基本功能（输入输出重定向）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+        <footer class="footer-area">
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 align-self-center">
+                        <p class="copyright-text">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <a href="/">SSTap Node免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                    <div class="col-md-6 align-self-center">
+                        <ul class="footer-social">
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <a href="#" id="scroll-top"><i class="far fa-arrow-up"></i></a>
+    <script data-cfasync="false" src="/assets/website/js/frontend/sstapnode/email-decode.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/modernizr.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.appear.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.easing.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/counter-up.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery-ui.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.timepicker.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.nice-select.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
