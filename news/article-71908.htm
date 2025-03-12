@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sstapnode.github.io/news/article-71908.htm" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maven安装与配置，Idea配置Maven</title>
+        <meta name="description" content="文章目录  一、安装本地Maven 二、安装 三、配置环境变量 四、配置settings文件 五、idea配置    选择你需要的maven版本下载：官网下载传送门 我使用的是3.6.1版本：mave" />
+        <link rel="icon" href="/assets/website/img/sstapnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SSTap Node免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sstapnode.github.io/news/article-71908.htm" />
+    <meta property="og:site_name" content="SSTap Node免费机场订阅节点官网" />
+    <meta property="og:title" content="Maven安装与配置，Idea配置Maven" />
+    <meta property="og:image" content="https://sstapnode.github.io/uploads/20241109/8ae12d41733cf3613e8f1ddf955528d2.webp" />
+        <meta property="og:release_date" content="2025-03-11T07:48:45" />
+    <meta property="og:updated_time" content="2025-03-11T07:48:45" />
+        <meta property="og:description" content="文章目录  一、安装本地Maven 二、安装 三、配置环境变量 四、配置settings文件 五、idea配置    选择你需要的maven版本下载：官网下载传送门 我使用的是3.6.1版本：mave" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Maven安装与配置，Idea配置Maven">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/all-fontawesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/animate.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/magnific-popup.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/jquery-ui.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/jquery.timepicker.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/nice-select.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RQLB5BXPJG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RQLB5BXPJG');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="loader-ripple">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <header class="header">
+        <div class="main-navigation">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container position-relative">
+                    <a class="navbar-brand" href="/">
+                                                <span>SSTap Node</span>
+                                            </a>
+                    <div class="mobile-menu-right">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-mobile-icon"><i class="far fa-bars"></i></span>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse" id="main_nav">
+                        <ul class="navbar-nav">
+                                                        <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/client.htm">客户端</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="site-breadcrumb" style="background: url(/assets/website/img/sstapnode/01.jpg)">
+            <div class="container">
+                <h1 class="breadcrumb-title">Maven安装与配置，Idea配置Maven</h1>
+                <ul class="breadcrumb-menu">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/news/">新闻资讯</a></li>
+                    <li class="active">正文</li>
+                </ul>
+            </div>
+        </div>
+        <div class="about-area py-120">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <div class="toc"> <h3>文章目录</h3> <ul> <li><a href="#Maven_1" rel="nofollow">一、安装本地Maven</a></li> <li><a href="#_8" rel="nofollow">二、安装</a></li> <li><a href="#_12" rel="nofollow">三、配置环境变量</a></li> <li><a href="#settings_28" rel="nofollow">四、配置settings文件</a></li> <li><a href="#idea_92" rel="nofollow">五、idea配置</a></li> </ul> </div> </h1> <p>选择你需要的maven版本下载：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://maven.apache.org/download.cgi"  rel="nofollow">官网下载传送门</a></p> <p>我使用的是3.6.1版本：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://archive.apache.org/dist/maven/maven-3/3.6.1/binaries/"  rel="nofollow">maven-3.6.1-bin.zip</a><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/e198cc59d63103fd06bc63ba94817c55.jpg" alt="Maven安装与配置，Idea配置Maven"></p> </h1> <p>把下载好的maven压缩包解压到一个没有中文，空格或其他特殊字符的文件夹，如：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/e1d0f637036aeca82a997546ee1855bf.jpg" alt="Maven安装与配置，Idea配置Maven"></p> </h1> <p>1.右键此电脑-&gt;属性-&gt;高级系统设置-&gt;环境变量</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/7c48673f7bfaafbce0f8480f80d9628d.jpg" alt="Maven安装与配置，Idea配置Maven"><br /> 2.新建系统变量MAVEN_HOME<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/09ba7d0e5bbb6231240f413efe13e3f6.jpg" alt="Maven安装与配置，Idea配置Maven"><br /> 3.编辑系统变量Path，添加变量值%MAVEN_HOME%\bin</p> <pre><code>%MAVEN_HOME%\bin</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/18377bcaaa2ce58d18c3d7cbe3fa5778.jpg" alt="Maven安装与配置，Idea配置Maven"><br /> 4.验证安装是否成功，win+R运行cmd，输入mvn -v，如图所示则配置成功<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/dbde212012e257d61c4b7f0db4c073bc.jpg" alt="Maven安装与配置，Idea配置Maven"></p> </h1> <p>1.在Maven安装目录conf目录下找到settings.xml配置文件<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/e4397f8ded61bf3de00ec72d695c25eb.jpg" alt="Maven安装与配置，Idea配置Maven"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/0fd7eda48e12b13420db053515c8a4c0.jpg" alt="Maven安装与配置，Idea配置Maven"></p> <p>2.修改本地仓库地址<br /> （1）在maven安装目录下新建本地仓库文件夹maven_repository<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/dd5b25548847c2c7c0d6739be746de96.jpg" alt="Maven安装与配置，Idea配置Maven"><br /> （2）修改默认本地仓库地址<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/dd7d23cd1feaf9c7b6b3d13a28cf5907.jpg" alt="Maven安装与配置，Idea配置Maven"><br /> 3.配置私服，因为中央仓库在国外导致下载jar包很慢或者失败，所以我们改为国内的服务器，下面三个选择一个就可以了。<br /> （一般会用阿里云的镜像库，但不知道是我电脑还是网络的原因，下载jar包总会出错，换了很多阿里云镜像都不管用，最后换了腾讯云的就好了，所有这里给出了三个镜像）<br /> 【阿里云】</p> <pre><code>&lt;mirror&gt;   &lt;id&gt;aliyunmaven&lt;/id&gt;   &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;   &lt;name&gt;阿里云公共仓库&lt;/name&gt;   &lt;url&gt;https://maven.aliyun.com/repository/public&lt;/url&gt; &lt;/mirror&gt;</code></pre> <p>【网易】</p> <pre><code>&lt;mirror&gt;     &lt;id&gt;nexus-163&lt;/id&gt;     &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     &lt;name&gt;Nexus 163&lt;/name&gt;     &lt;url&gt;http://mirrors.163.com/maven/repository/maven-public/&lt;/url&gt; &lt;/mirror&gt;</code></pre> <p>【腾讯云】</p> <pre><code>&lt;mirror&gt;     &lt;id&gt;nexus-tencentyun&lt;/id&gt;     &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;     &lt;name&gt;Nexus tencentyun&lt;/name&gt;     &lt;url&gt;http://mirrors.cloud.tencent.com/nexus/repository/maven-public/&lt;/url&gt; &lt;/mirror&gt;</code></pre> <p>将镜像复制到两个mirrors标签之间<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/e33a5aa36b4fc3ce477b17401a8421d9.jpg" alt="Maven安装与配置，Idea配置Maven"><br /> 4.配置jdk，也要夹在两个profiles标签之间</p> <pre><code>&lt;!-- java1.8版本 --&gt;  &lt;profile&gt;       &lt;id&gt;jdk-1.8&lt;/id&gt;       &lt;activation&gt; 	    &lt;activeByDefault&gt;true&lt;/activeByDefault&gt;         &lt;jdk&gt;1.8&lt;/jdk&gt;       &lt;/activation&gt;        &lt;properties&gt;         &lt;maven.compiler.source&gt;1.8&lt;/maven.compiler.source&gt; 		&lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt; 		&lt;maven.compiler.compilerVersion&gt;1.8&lt;/maven.compiler.compilerVersion&gt;       &lt;/properties&gt; &lt;/profile&gt;</code></pre> </h1> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/2a4dc1725b618fb732464be03df0fc1f.jpg" alt="Maven安装与配置，Idea配置Maven"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220603/60f3e75b353f1d0c2fe3d8d57672f854.jpg" alt="Maven安装与配置，Idea配置Maven"></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-71243.htm">免费领养宠物的软件下载（免费领养宠物的小程序）</a></p>
+                                        <p>下一个：<a href="/news/article-71909.htm">合肥宠物狗免费赠送 合肥宠物狗免费赠送政策</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-58956.htm" title="动物疫苗企业名单公布时间表（中国动物疫苗生产企业排名）">动物疫苗企业名单公布时间表（中国动物疫苗生产企业排名）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-1-free-subscribe-node.htm" title="SSTap Node节点订阅每天更新19.1M/S免费节点订阅链接地址分享">SSTap Node节点订阅每天更新19.1M/S免费节点订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-42738.htm" title="动物疫苗接种方法有哪几种呢（动物疫苗接种方法有哪几种呢视频）">动物疫苗接种方法有哪几种呢（动物疫苗接种方法有哪几种呢视频）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-16-free-node-subscribe.htm" title="SSTap Node节点订阅每天更新19.9M/S免费节点订阅链接地址分享">SSTap Node节点订阅每天更新19.9M/S免费节点订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-9-free-high-speed-nodes.htm" title="SSTap Node节点订阅每天更新18.8M/S免费节点订阅链接地址分享">SSTap Node节点订阅每天更新18.8M/S免费节点订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-69298.htm" title="docker存储路径修改">docker存储路径修改</a></li>
+                        <li class="py-2"><a href="/news/article-45214.htm" title="动物医院手续流程及费用表（动物医院手续流程及费用表格）">动物医院手续流程及费用表（动物医院手续流程及费用表格）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-22-free-high-speed-nodes.htm" title="SSTap Node节点订阅每天更新20.9M/S免费节点订阅链接地址分享">SSTap Node节点订阅每天更新20.9M/S免费节点订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-19-free-high-speed-nodes.htm" title="SSTap Node节点订阅每天更新18.1M/S免费节点订阅链接地址分享">SSTap Node节点订阅每天更新18.1M/S免费节点订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-35788.htm" title="公务员2021国考报名人数统计表图片（国考公务员2021年报名人数）">公务员2021国考报名人数统计表图片（国考公务员2021年报名人数）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">36</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+        <footer class="footer-area">
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 align-self-center">
+                        <p class="copyright-text">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <a href="/">SSTap Node免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                    <div class="col-md-6 align-self-center">
+                        <ul class="footer-social">
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <a href="#" id="scroll-top"><i class="far fa-arrow-up"></i></a>
+    <script data-cfasync="false" src="/assets/website/js/frontend/sstapnode/email-decode.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/modernizr.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.appear.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.easing.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/counter-up.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery-ui.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.timepicker.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.nice-select.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

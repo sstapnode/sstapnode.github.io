@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sstapnode.github.io/news/article-71242.htm" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>springboot+layui有关分页问题</title>
+        <meta name="description" content="分页不生效明明可以分页 但是后端接收到的pagenum始终是1  &nbsp;   &nbsp;  &nbsp; 提示：这里描述项目中遇到的问题： 例如：分页出问题 @Override public " />
+        <link rel="icon" href="/assets/website/img/sstapnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SSTap Node免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sstapnode.github.io/news/article-71242.htm" />
+    <meta property="og:site_name" content="SSTap Node免费机场订阅节点官网" />
+    <meta property="og:title" content="springboot+layui有关分页问题" />
+    <meta property="og:image" content="https://sstapnode.github.io/uploads/20241109/c84a1170e48399a323447d061735d1f0.webp" />
+        <meta property="og:release_date" content="2025-03-10T04:37:57" />
+    <meta property="og:updated_time" content="2025-03-10T04:37:57" />
+        <meta property="og:description" content="分页不生效明明可以分页 但是后端接收到的pagenum始终是1  &nbsp;   &nbsp;  &nbsp; 提示：这里描述项目中遇到的问题： 例如：分页出问题 @Override public " />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="springboot+layui有关分页问题">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/all-fontawesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/animate.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/magnific-popup.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/jquery-ui.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/jquery.timepicker.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/nice-select.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RQLB5BXPJG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RQLB5BXPJG');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="loader-ripple">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <header class="header">
+        <div class="main-navigation">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container position-relative">
+                    <a class="navbar-brand" href="/">
+                                                <span>SSTap Node</span>
+                                            </a>
+                    <div class="mobile-menu-right">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-mobile-icon"><i class="far fa-bars"></i></span>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse" id="main_nav">
+                        <ul class="navbar-nav">
+                                                        <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/client.htm">客户端</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="site-breadcrumb" style="background: url(/assets/website/img/sstapnode/01.jpg)">
+            <div class="container">
+                <h1 class="breadcrumb-title">springboot+layui有关分页问题</h1>
+                <ul class="breadcrumb-menu">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/news/">新闻资讯</a></li>
+                    <li class="active">正文</li>
+                </ul>
+            </div>
+        </div>
+        <div class="about-area py-120">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> </h1> <p>分页不生效明明可以分页 但是后端接收到的pagenum始终是1</p> <p><img fetchpriority="high" decoding="async" alt="" height="666" src="http://img.555519.xyz/uploads/20221229/c59a527b0de303d609252340235dc055.jpg"></p> <p>&nbsp;</p> <p><img decoding="async" alt="" height="638" src="http://img.555519.xyz/uploads/20221229/824848c76af69c307472c3fba7f563be.jpg"></p> <hr/> <p>&nbsp;<img decoding="async" alt="" height="112" src="http://img.555519.xyz/uploads/20221229/be4f575893cf736c2e3af956c4f27b01.jpg"></p> <p><img loading="lazy" decoding="async" alt="" height="307" src="http://img.555519.xyz/uploads/20221229/1c88fc7a28a3d6682389c4f0a5eaba6e.jpg"></p> <p>&nbsp;</p> <p><code>提示：这里描述项目中遇到的问题：</code></p> <p>例如：分页出问题</p> <pre>@Override public Result selectAll(Integer page,Integer size) {     //启动分页     PageHelper.startPage(page,size);     //查询所有数据进行分页     List&lt;PropertyNotice&gt; notices = propertyNoticeMapper.selectAll();     PageInfo&lt;PropertyNotice&gt; pageInfo = new PageInfo&lt;&gt;(notices);     return Result.ok().msg("").count(notices.size()).data(pageInfo); }</pre> <hr/> </h1> <blockquote> <p>提示：这里填写问题的分析：通过对前端数据源的打印可以知道这里的count数据是不对的，这里本来应该是总条数却变成了我们的设置数，那么就默认这样也只有这么多数据，自然也就不能分页，不能点击下一页</p> </blockquote> <p><img loading="lazy" decoding="async" alt="" height="256" src="http://img.555519.xyz/uploads/20221229/d8159448498ec37a0727503edb8e1a4d.jpg"></p> <hr/> <p>&nbsp;</p> </h1> <blockquote> <p>提示：这里填写该问题的具体解决方案：解决办法就是只需要把count还原为总数据条数，而不是分页之后的条数，或者直接使用total</p> </blockquote> <p><img loading="lazy" decoding="async" alt="" height="313" src="http://img.555519.xyz/uploads/20221229/5dd23ac8c5de4b88dd9f942824d8acae.jpg"></p> <p>这样前端就没问题了</p> <p><img loading="lazy" decoding="async" alt="" height="628" src="http://img.555519.xyz/uploads/20221229/c054bb94036e4fa7bd27d59f86c2e22b.jpg"></p> <p><img loading="lazy" decoding="async" alt="" height="656" src="http://img.555519.xyz/uploads/20221229/910a0f2e743bd6c63c6a16eca77b6db4.jpg">&nbsp;</p> <p>&nbsp;</p> <p>&nbsp;</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-70576.htm">给动物打的疫苗是什么意思（给动物打疫苗的官方部门）</a></p>
+                                        <p>下一个：<a href="/news/article-71243.htm">免费领养宠物的软件下载（免费领养宠物的小程序）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-25-free-node-subscribe.htm" title="SSTap Node节点订阅每天更新22.3M/S免费节点订阅链接地址分享">SSTap Node节点订阅每天更新22.3M/S免费节点订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-48491.htm" title="打了动物疫苗为什么发热呢（动物疫苗反应有哪些）">打了动物疫苗为什么发热呢（动物疫苗反应有哪些）</a></li>
+                        <li class="py-2"><a href="/news/article-46190.htm" title="动物疫苗接种间隔时间短有什么危害 动物疫苗接种间隔时间短有什么危害吗">动物疫苗接种间隔时间短有什么危害 动物疫苗接种间隔时间短有什么危害吗</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-9-free-high-speed-nodes.htm" title="SSTap Node节点订阅每天更新18.8M/S免费节点订阅链接地址分享">SSTap Node节点订阅每天更新18.8M/S免费节点订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-60688.htm" title="南京宠物寄养一般怎么收费 南京宠物寄养一般怎么收费呢">南京宠物寄养一般怎么收费 南京宠物寄养一般怎么收费呢</a></li>
+                        <li class="py-2"><a href="/news/article-58366.htm" title="北京宠物医院加盟（北京宠物加盟店）">北京宠物医院加盟（北京宠物加盟店）</a></li>
+                        <li class="py-2"><a href="/news/article-47151.htm" title="ElasticSearch8 SpringBoot集成ElasticSearch8.x 基本应用 CRUD操作 环境安装详细步骤">ElasticSearch8 SpringBoot集成ElasticSearch8.x 基本应用 CRUD操作 环境安装详细步骤</a></li>
+                        <li class="py-2"><a href="/news/article-69933.htm" title="速冻黑椒鸡块怎么炸(冷冻黑椒鸡块炸多长时间)">速冻黑椒鸡块怎么炸(冷冻黑椒鸡块炸多长时间)</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-5-free-high-speed-nodes.htm" title="SSTap Node节点订阅每天更新21M/S免费节点订阅链接地址分享">SSTap Node节点订阅每天更新21M/S免费节点订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-49665.htm" title="加盟做什么项目比较好（加盟做什么生意最赚钱投资小）">加盟做什么项目比较好（加盟做什么生意最赚钱投资小）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">36</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+        <footer class="footer-area">
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 align-self-center">
+                        <p class="copyright-text">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <a href="/">SSTap Node免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                    <div class="col-md-6 align-self-center">
+                        <ul class="footer-social">
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <a href="#" id="scroll-top"><i class="far fa-arrow-up"></i></a>
+    <script data-cfasync="false" src="/assets/website/js/frontend/sstapnode/email-decode.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/modernizr.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.appear.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.easing.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/counter-up.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery-ui.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.timepicker.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.nice-select.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
