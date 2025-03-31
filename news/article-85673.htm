@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sstapnode.github.io/news/article-85673.htm" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java 18为什么要指定UTF-8为默认字符集_在线工具</title>
+        <meta name="description" content="在Java 18中，将UTF-8指定为标准Java API的默认字符集。有了这一更改，依赖于默认字符集的API将在所有实现、操作系统、区域设置和配置中保持一致。 做这一更改的主要目标：  当Java程" />
+        <link rel="icon" href="/assets/website/img/sstapnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SSTap Node免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sstapnode.github.io/news/article-85673.htm" />
+    <meta property="og:site_name" content="SSTap Node免费机场订阅节点官网" />
+    <meta property="og:title" content="Java 18为什么要指定UTF-8为默认字符集_在线工具" />
+    <meta property="og:image" content="https://sstapnode.github.io/uploads/20241109/863fd57bc7df05ae2103126c34418589.webp" />
+        <meta property="og:release_date" content="2025-03-31T08:43:26" />
+    <meta property="og:updated_time" content="2025-03-31T08:43:26" />
+        <meta property="og:description" content="在Java 18中，将UTF-8指定为标准Java API的默认字符集。有了这一更改，依赖于默认字符集的API将在所有实现、操作系统、区域设置和配置中保持一致。 做这一更改的主要目标：  当Java程" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Java 18为什么要指定UTF-8为默认字符集_在线工具">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/all-fontawesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/animate.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/magnific-popup.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/jquery-ui.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/jquery.timepicker.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/nice-select.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RQLB5BXPJG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RQLB5BXPJG');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="loader-ripple">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <header class="header">
+        <div class="main-navigation">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container position-relative">
+                    <a class="navbar-brand" href="/">
+                                                <span>SSTap Node</span>
+                                            </a>
+                    <div class="mobile-menu-right">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-mobile-icon"><i class="far fa-bars"></i></span>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse" id="main_nav">
+                        <ul class="navbar-nav">
+                                                        <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/client.htm">客户端</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="site-breadcrumb" style="background: url(/assets/website/img/sstapnode/01.jpg)">
+            <div class="container">
+                <h1 class="breadcrumb-title">Java 18为什么要指定UTF-8为默认字符集_在线工具</h1>
+                <ul class="breadcrumb-menu">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/news/">新闻资讯</a></li>
+                    <li class="active">正文</li>
+                </ul>
+            </div>
+        </div>
+        <div class="about-area py-120">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<p>在Java 18中，将UTF-8指定为标准Java API的默认字符集。有了这一更改，依赖于默认字符集的API将在所有实现、操作系统、区域设置和配置中保持一致。</p> <p>做这一更改的主要目标：</p> <ul> <li>当Java程序的代码依赖于默认字符集时，使其更具可预测性和可移植性。</li> <li>阐明标准Java API在哪里使用默认字符集。</li> <li>在整个标准Java API中对UTF-8进行标准化，但控制台I/O除外。</li> </ul> <p>需要注意的是，这一更改的目标并不是定义新的标准Java API或受支持的JDK API，尽管这项工作可能会发现新的便利方法可能会使现有的API更易于使用，这一更改并不是要弃用或删除依赖默认字符集的标准Java API。</p> <p>用于读写文件和处理文本的标准Java API允许将字符集作为参数传递。字符集控制Java编程语言的原始字节和16位字符值之间的转换。例如，支持的字符集包括US-ASCII、UTF-8和ISO-8859-1。</p> <p>如果没有传递字符集参数，则标准的Java API通常使用默认的字符集。JDK在启动时根据运行时环境选择默认的字符集：操作系统、用户的区域设置和其他因素。</p> <p>因为默认字符集在每个地方都不一样，所以使用默认字符集的API会带来许多不明显的危险，甚至对经验丰富的开发人员也是如此。</p> <p>考虑这样一个应用程序，它在不传递字符集的情况下创建一个<code>java.io.FileWriter</code>，然后使用它将一些文本写入文件。结果文件将包含一个使用运行应用程序的JDK的默认字符集编码的字节序列。第二个应用程序在不同的机器上运行，或者由同一台机器上的不同用户运行，在不传递字符集的情况下创建一个<code>java.io.FileReader</code>，并使用它来读取该文件中的字节。生成的文本包含使用运行第二个应用程序的JDK的默认字符集解码的字符序列。如果第一个应用程序的JDK和第二个应用程序的JDK之间的默认字符集不同，则生成的文本可能会被损坏或不完整，因为<code>FileReader</code>无法判断它使用了相对于<code>FileWriter</code>的错误字符集来解码文本。</p> <p>比如这就是一个典型的例子，在MacOS上以UTF-8编码的日语文本文件在Windows上以美英或日语区域设置读取时被损坏：</p> <pre><code class="language-java">java.io.FileReader(“hello.txt”) -&gt; “こんにちは” (macOS) java.io.FileReader(“hello.txt”) -&gt; “ã?“ã‚“ã?«ã?¡ã? ” (Windows (en-US)) java.io.FileReader(“hello.txt”) -&gt; “縺ォ縺。縺ッ” (Windows (ja-JP)</code></pre> <p>在JDK 17及更早版本中，默认字符集是在Java运行时才确定的。在MacOS上，除POSIX C语言环境外，它是UTF-8。在其他操作系统上，取决于用户的区域设置，比如：Windows上，它是基于代码页的字符集，如Windows-1252或Windows-31j。如果不清楚Java应用运行环境的默认编码，可以使用这个命令查看当前JDK的默认字符集：</p> <pre><code class="language-text">java -XshowSettings:properties -version 2&gt;&amp;1 | grep file.encoding</code></pre> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://didispace.com/"  target="_blank" rel="nofollow">程序猿DD Tips</a>：在过去的版本中，当读写文件时，没有指明字符集的话，所选择的字符集与操作系统、用户区域等因素相关，而不同的操作系统的默认编码不同，所以很可能会出现读写编码不一致的情况，从而导致程序在不同系统下运行出现乱码问题。所以这一更改可以让Java开发的应用具备更好的移植性。同时，从这一点的改进，也提醒我们，在读写文件的时候，为了你的应用有更好的可移植性，在涉及读写操作的时候，一定要加上编码参数。这样即使在Java 18之前的版本，也能拥有更好的可移植性，同时为将来升级Java 21提供更好的兼容前提。</p> <p>本文配套视频：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.bilibili.com/video/BV1YY4y1a7vG"  target="_blank" rel="nofollow">https://www.bilibili.com/video/BV1YY4y1a7vGopen in new window</a></p> <p>如果您学习过程中如遇困难？可以加入我们超高质量的<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.didispace.com/join-group-spring/index.html"  target="_blank" rel="nofollow">技术交流群</a>，参与交流与讨论，更好的学习与进步！另外，不要走开，关注我！持续更新<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.didispace.com/java-features/"  target="_blank" rel="nofollow">Java新特性教程</a>！</p> <blockquote> <p>欢迎关注我的公众号：程序猿DD。第一时间了解前沿行业消息、分享深度技术干货、获取优质学习资源</p> </blockquote> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-84970.htm">兽医医院在哪（兽医医院电话号码）</a></p>
+                                        <p>下一个：<a href="/news/article-85674.htm">宠物粮食品牌取名字大全图片及寓意（宠物粮食品牌起名大全）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-36284.htm" title="厦门同安宠物店（同安的宠物店）">厦门同安宠物店（同安的宠物店）</a></li>
+                        <li class="py-2"><a href="/news/article-39241.htm" title="开宠物店会不会赔本呢（开宠物店会不会赔本呢）">开宠物店会不会赔本呢（开宠物店会不会赔本呢）</a></li>
+                        <li class="py-2"><a href="/news/article-50708.htm" title="Redis和Mysql如何保证数据一致性">Redis和Mysql如何保证数据一致性</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-26-free-high-speed-nodes.htm" title="SSTap Node节点订阅每天更新20.4M/S免费节点订阅链接地址分享">SSTap Node节点订阅每天更新20.4M/S免费节点订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-77283.htm" title="宠物猫打疫苗多久一次、多少钱（宠物猫打一次疫苗要多少钱）">宠物猫打疫苗多久一次、多少钱（宠物猫打一次疫苗要多少钱）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-8-free-high-speed-nodes.htm" title="SSTap Node节点订阅每天更新20M/S免费节点订阅链接地址分享">SSTap Node节点订阅每天更新20M/S免费节点订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-10-node-share.htm" title="SSTap Node节点订阅每天更新18.7M/S免费节点订阅链接地址分享">SSTap Node节点订阅每天更新18.7M/S免费节点订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-44196.htm" title="三国杀武将的台词大全（三国杀武将台词大全整理）">三国杀武将的台词大全（三国杀武将台词大全整理）</a></li>
+                        <li class="py-2"><a href="/news/article-66088.htm" title="SpringBoot中的重定向不可用（使用redirect：）">SpringBoot中的重定向不可用（使用redirect：）</a></li>
+                        <li class="py-2"><a href="/news/article-75914.htm" title="动物疫苗接种时间间隔多长时间打（动物疫苗接种时间间隔多长时间打第一针）">动物疫苗接种时间间隔多长时间打（动物疫苗接种时间间隔多长时间打第一针）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+        <footer class="footer-area">
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 align-self-center">
+                        <p class="copyright-text">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <a href="/">SSTap Node免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                    <div class="col-md-6 align-self-center">
+                        <ul class="footer-social">
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <a href="#" id="scroll-top"><i class="far fa-arrow-up"></i></a>
+    <script data-cfasync="false" src="/assets/website/js/frontend/sstapnode/email-decode.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/modernizr.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.appear.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.easing.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/counter-up.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery-ui.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.timepicker.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.nice-select.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

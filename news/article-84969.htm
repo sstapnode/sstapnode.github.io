@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sstapnode.github.io/news/article-84969.htm" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpringMVC中RequestMapping注解【作用、出现的位置、属性】</title>
+        <meta name="description" content="RequestMapping注解  作用 出现位置 属性     用于建立请求 URL 和处理请求方法之间的对应关系。    1.作用在类上：请求 URL 的第一级访问目录。此处不写的话，就相当于应用" />
+        <link rel="icon" href="/assets/website/img/sstapnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SSTap Node免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sstapnode.github.io/news/article-84969.htm" />
+    <meta property="og:site_name" content="SSTap Node免费机场订阅节点官网" />
+    <meta property="og:title" content="SpringMVC中RequestMapping注解【作用、出现的位置、属性】" />
+    <meta property="og:image" content="https://sstapnode.github.io/uploads/20241109/dc790d32cdd185929333c89df18c02ba.webp" />
+        <meta property="og:release_date" content="2025-03-30T09:36:54" />
+    <meta property="og:updated_time" content="2025-03-30T09:36:54" />
+        <meta property="og:description" content="RequestMapping注解  作用 出现位置 属性     用于建立请求 URL 和处理请求方法之间的对应关系。    1.作用在类上：请求 URL 的第一级访问目录。此处不写的话，就相当于应用" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="SpringMVC中RequestMapping注解【作用、出现的位置、属性】">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/all-fontawesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/animate.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/magnific-popup.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/jquery-ui.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/jquery.timepicker.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/nice-select.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RQLB5BXPJG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RQLB5BXPJG');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="loader-ripple">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <header class="header">
+        <div class="main-navigation">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container position-relative">
+                    <a class="navbar-brand" href="/">
+                                                <span>SSTap Node</span>
+                                            </a>
+                    <div class="mobile-menu-right">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-mobile-icon"><i class="far fa-bars"></i></span>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse" id="main_nav">
+                        <ul class="navbar-nav">
+                                                        <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/client.htm">客户端</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="site-breadcrumb" style="background: url(/assets/website/img/sstapnode/01.jpg)">
+            <div class="container">
+                <h1 class="breadcrumb-title">SpringMVC中RequestMapping注解【作用、出现的位置、属性】</h1>
+                <ul class="breadcrumb-menu">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/news/">新闻资讯</a></li>
+                    <li class="active">正文</li>
+                </ul>
+            </div>
+        </div>
+        <div class="about-area py-120">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <div class="toc"> <h3>RequestMapping注解</h3> <ul> <li><a href="#_1" rel="nofollow">作用</a></li> <li><a href="#_4" rel="nofollow">出现位置</a></li> <li><a href="#_40" rel="nofollow">属性</a></li> </ul> </div> </h1> <blockquote> <p><strong>用于建立请求 URL 和处理请求方法之间的对应关系。</strong></p> </blockquote> </h1> <blockquote> <p><strong>1.作用在类上：请求 URL 的第一级访问目录。此处不写的话，就相当于应用的根目录。写的话需要以/开头。<br /> 2.作用在方法上：请求 URL 的第二级访问目录。</strong></p> </blockquote> <p><mark><strong>控制器中部分代码示例：</strong></mark></p> <pre><code class="prism language-java"><span class="token annotation punctuation">@Controller</span><span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span>path<span class="token operator">=</span><span class="token string">"/user"</span><span class="token punctuation">)</span><span class="token comment">//第一级的访问目录</span><span class="token keyword">public</span><span class="token keyword">class</span><span class="token class-name">HelloController</span><span class="token punctuation">{<!-- --></span><span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span>path<span class="token operator">=</span><span class="token string">"/hello"</span><span class="token punctuation">)</span><span class="token comment">//第二级的访问目录</span><span class="token keyword">public</span> String<span class="token function">sayHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"Hello SpringMVC"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">return</span><span class="token string">"success"</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span>value<span class="token operator">=</span><span class="token string">"/testRequestmapping"</span><span class="token punctuation">)</span><span class="token comment">//第二级的访问目录</span><span class="token keyword">public</span> String<span class="token function">testRequestmapping</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"测试注解"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">return</span><span class="token string">"success"</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> <p><mark><strong>jsp中部分代码示例：</strong></mark></p> <pre><code class="prism language-java"><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 第一种访问方式<span class="token operator">--</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span>a href<span class="token operator">=</span><span class="token string">"${pageContext.request.contextPath}/user/hello"</span><span class="token operator">&gt;</span>sayHello<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">&gt;</span><span class="token operator">&lt;</span>br<span class="token operator">/</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 第二种访问方式<span class="token operator">--</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span>a href<span class="token operator">=</span><span class="token string">"user/testRequestmapping"</span><span class="token operator">&gt;</span>测试注解<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">&gt;</span></code></pre> <p><mark><strong>需要注意的细节：</strong></mark></p> <blockquote> <p><strong>1.细节：路径可以不编写 / 表示应用的根目录开始<br /> 2.细节：${ pageContext.request.contextPath }也可以省略不写，但是路径上不能写 /</strong></p> </blockquote> </h1> <p><strong><mark>value：</mark> 用于指定请求的 URL。它和 path 属性的作用是一样的。<br /><mark>method：</mark> 用于指定请求的方式。<br /><mark>params：</mark> 用于指定限制请求参数的条件。它支持简单的表达式。要求请求参数的 key 和 value 必须和配置的一模一样。</strong></p> <blockquote> <p>例如：<br /> params = {“username”}，表示请求参数必须有 username<br /> params = {“age!100”}，表示请求参数中 age 不能是 100</p> </blockquote> <p><strong><mark>headers：</mark> 用于指定限制请求消息头的条件。</strong></p> <p><font color="red"><strong>注意：以上四个属性只要出现 2 个或以上时，他们的关系是与的关系。</strong></font></p> <p><font size="5"><strong>value或path 属性的示例</strong></font></p> <blockquote> <p><strong>上面出现位置的示例就是value或path 属性的示例。</strong></p> </blockquote> <p><font size="5"><strong>method 属性的示例</strong></font></p> <p><mark><strong>控制器的部分代码：</strong></mark></p> <pre><code class="prism language-java"><span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span>value<span class="token operator">=</span><span class="token string">"/saveAccount"</span><span class="token punctuation">,</span>method<span class="token operator">=</span>RequestMethod<span class="token punctuation">.</span>POST<span class="token punctuation">)</span><span class="token keyword">public</span> String<span class="token function">saveAccount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span> 	System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"保存了账户"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">return</span><span class="token string">"success"</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre> <p><mark><strong>jsp的部分代码：</strong></mark></p> <pre><code class="prism language-java"><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 请求方式的示例<span class="token operator">--</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span>a href<span class="token operator">=</span><span class="token string">"account/saveAccount"</span><span class="token operator">&gt;</span>保存账户，get 请求<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">&gt;</span><span class="token operator">&lt;</span>br<span class="token operator">/</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span>form action<span class="token operator">=</span><span class="token string">"account/saveAccount"</span> method<span class="token operator">=</span><span class="token string">"post"</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span>input type<span class="token operator">=</span><span class="token string">"submit"</span> value<span class="token operator">=</span><span class="token string">"保存账户，post 请求"</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>form<span class="token operator">&gt;</span></code></pre> <blockquote> <p><strong>注意：当使用 get 请求时即<code>method="get"</code>，提示错误信息是 405，信息是方法不支持 get 方式请求。</strong><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220830/cb56d4a542e6b78f173e17cb7d2d203e.jpg" alt="SpringMVC中RequestMapping注解【作用、出现的位置、属性】"></p> </blockquote> <p><font size="5"><strong>params 属性的示例</strong></font></p> <p><mark><strong>控制器的部分代码：</strong></mark></p> <pre><code class="prism language-java"><span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span>value<span class="token operator">=</span><span class="token string">"/removeAccount"</span><span class="token punctuation">,</span>params<span class="token operator">=</span><span class="token punctuation">{<!-- --></span><span class="token string">"accountName"</span><span class="token punctuation">,</span><span class="token string">"money&gt;100"</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token keyword">public</span> String<span class="token function">removeAccount</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span> 	System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"删除了账户"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">return</span><span class="token string">"success"</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre> <p><mark><strong>jsp的部分代码：</strong></mark></p> <pre><code class="prism language-java"><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> 请求参数的示例<span class="token operator">--</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span>a href<span class="token operator">=</span><span class="token string">"account/removeAccount?accountName=aaa&amp;money&gt;100"</span><span class="token operator">&gt;</span>删除账户，金额<span class="token number">100</span><span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">&gt;</span><span class="token operator">&lt;</span>br<span class="token operator">/</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span>a href<span class="token operator">=</span><span class="token string">"account/removeAccount?accountName=aaa&amp;money&gt;150"</span><span class="token operator">&gt;</span>删除账户，金额<span class="token number">150</span><span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">&gt;</span></code></pre> <blockquote> <p><strong>注意：<br /> 当我们点击第一个超链接时,可以访问成功。<br /> 当我们点击第二个超链接时，无法访问。如下图：</strong><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220830/3244dafbd76ef27562ed4dee94f2d5b6.jpg" alt="SpringMVC中RequestMapping注解【作用、出现的位置、属性】"></p> </blockquote> <p><font size="5"><strong>params键值对的情况以及headers属性</strong></font></p> <p><strong>还存在<code>params = {"username=keafmd"}</code>键值对的情况：这个示例的意思就是不光要有username的属性还要求值为Keafmd。</strong><br /><strong>同时headers属性也就是表示必须包含相应的请求头才可以。</strong><br /><mark><strong>控制器的部分代码：</strong></mark></p> <pre><code class="prism language-java"><span class="token annotation punctuation">@Controller</span><span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span>path<span class="token operator">=</span><span class="token string">"/user"</span><span class="token punctuation">)</span><span class="token keyword">public</span><span class="token keyword">class</span><span class="token class-name">HelloController</span><span class="token punctuation">{<!-- --></span><span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span>value<span class="token operator">=</span><span class="token string">"/testRequestmapping"</span><span class="token punctuation">,</span>method<span class="token operator">=</span><span class="token punctuation">{<!-- --></span>RequestMethod<span class="token punctuation">.</span>GET<span class="token punctuation">}</span><span class="token punctuation">,</span>params<span class="token operator">=</span><span class="token punctuation">{<!-- --></span><span class="token string">"username=keafmd"</span><span class="token punctuation">}</span><span class="token punctuation">,</span>headers<span class="token operator">=</span><span class="token punctuation">{<!-- --></span><span class="token string">"Accept"</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token keyword">public</span> String<span class="token function">testRequestmapping</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"测试注解"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">return</span><span class="token string">"success"</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> <p><mark><strong>jsp的部分代码：</strong></mark></p> <pre><code class="prism language-java"><span class="token operator">&lt;</span>a href<span class="token operator">=</span><span class="token string">"user/testRequestmapping?username=keafmd"</span><span class="token operator">&gt;</span>RequestMapping注解<span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">&gt;</span></code></pre> <blockquote> <p><strong>这样就是可以成功访问的。</strong></p> </blockquote> <blockquote> <p><strong>以上就是SpringMVC中RequestMapping注解【作用、出现的位置、属性】全部内容。</strong></p> </blockquote> <p><strong>看完如果对你有帮助，感谢点赞支持！<br /> 如果你是电脑端的话，看到右下角的 “<mark>一键三连</mark>” 了吗，没错点它[哈哈]</strong></p> <p><strong>加油！</strong></p> <p><strong>共同努力！</strong></p> <p><strong>Keafmd</strong></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-84245.htm">python PIL Image 图像处理基本操作实例_python</a></p>
+                                        <p>下一个：<a href="/news/article-84970.htm">兽医医院在哪（兽医医院电话号码）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-30-node-share-links.htm" title="SSTap Node节点订阅每天更新18.4M/S免费节点订阅链接地址分享">SSTap Node节点订阅每天更新18.4M/S免费节点订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-83530.htm" title="SpringBoot注解内容的动态配置">SpringBoot注解内容的动态配置</a></li>
+                        <li class="py-2"><a href="/news/article-84244.htm" title="SpringBoot中使用RestTemplate发送文件流，以及读取zip压缩包中文件的方法">SpringBoot中使用RestTemplate发送文件流，以及读取zip压缩包中文件的方法</a></li>
+                        <li class="py-2"><a href="/news/article-38762.htm" title="SpringCloudRPC远程调用核心原理：Feign远程调用的执行流程">SpringCloudRPC远程调用核心原理：Feign远程调用的执行流程</a></li>
+                        <li class="py-2"><a href="/news/article-73886.htm" title="正规宠物领养平台（宠物领养平台免费）">正规宠物领养平台（宠物领养平台免费）</a></li>
+                        <li class="py-2"><a href="/news/article-71908.htm" title="Maven安装与配置，Idea配置Maven">Maven安装与配置，Idea配置Maven</a></li>
+                        <li class="py-2"><a href="/news/article-55559.htm" title="被猫抓伤6天了打针还有用吗（被猫抓6天了猫没事）">被猫抓伤6天了打针还有用吗（被猫抓6天了猫没事）</a></li>
+                        <li class="py-2"><a href="/news/article-70576.htm" title="给动物打的疫苗是什么意思（给动物打疫苗的官方部门）">给动物打的疫苗是什么意思（给动物打疫苗的官方部门）</a></li>
+                        <li class="py-2"><a href="/news/article-77967.htm" title="宠物粮龙头企业排行榜前十（宠物粮公司排名）">宠物粮龙头企业排行榜前十（宠物粮公司排名）</a></li>
+                        <li class="py-2"><a href="/news/article-36285.htm" title="宠物店里的猫粮好吗能买吗（宠物店里的猫粮好吗能买吗多少钱）">宠物店里的猫粮好吗能买吗（宠物店里的猫粮好吗能买吗多少钱）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+        <footer class="footer-area">
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 align-self-center">
+                        <p class="copyright-text">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <a href="/">SSTap Node免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                    <div class="col-md-6 align-self-center">
+                        <ul class="footer-social">
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <a href="#" id="scroll-top"><i class="far fa-arrow-up"></i></a>
+    <script data-cfasync="false" src="/assets/website/js/frontend/sstapnode/email-decode.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/modernizr.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.appear.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.easing.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/counter-up.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery-ui.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.timepicker.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.nice-select.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sstapnode.github.io/news/article-83531.htm" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pytorch cuda上tensor的定义  以及 减少cpu操作的方法</title>
+        <meta name="description" content="cuda上tensor的定义  a = torch.ones(1000,1000,3).cuda()   某一gpu上定义  cuda1 = torch.device('cuda:1') b = to" />
+        <link rel="icon" href="/assets/website/img/sstapnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SSTap Node免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sstapnode.github.io/news/article-83531.htm" />
+    <meta property="og:site_name" content="SSTap Node免费机场订阅节点官网" />
+    <meta property="og:title" content="pytorch cuda上tensor的定义  以及 减少cpu操作的方法" />
+    <meta property="og:image" content="https://sstapnode.github.io/uploads/20241109/1141e30f57166edb7ef12546ad611db5.webp" />
+        <meta property="og:release_date" content="2025-03-28T09:56:46" />
+    <meta property="og:updated_time" content="2025-03-28T09:56:46" />
+        <meta property="og:description" content="cuda上tensor的定义  a = torch.ones(1000,1000,3).cuda()   某一gpu上定义  cuda1 = torch.device('cuda:1') b = to" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="pytorch cuda上tensor的定义  以及 减少cpu操作的方法">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/all-fontawesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/animate.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/magnific-popup.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/jquery-ui.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/jquery.timepicker.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/nice-select.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RQLB5BXPJG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RQLB5BXPJG');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="loader-ripple">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <header class="header">
+        <div class="main-navigation">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container position-relative">
+                    <a class="navbar-brand" href="/">
+                                                <span>SSTap Node</span>
+                                            </a>
+                    <div class="mobile-menu-right">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-mobile-icon"><i class="far fa-bars"></i></span>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse" id="main_nav">
+                        <ul class="navbar-nav">
+                                                        <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/client.htm">客户端</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="site-breadcrumb" style="background: url(/assets/website/img/sstapnode/01.jpg)">
+            <div class="container">
+                <h1 class="breadcrumb-title">pytorch cuda上tensor的定义  以及 减少cpu操作的方法</h1>
+                <ul class="breadcrumb-menu">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/news/">新闻资讯</a></li>
+                    <li class="active">正文</li>
+                </ul>
+            </div>
+        </div>
+        <div class="about-area py-120">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <blockquote> <p>cuda上tensor的定义</p> </blockquote> <pre><code>a = torch.ones(1000,1000,3).cuda() </code></pre> <blockquote> <p>某一gpu上定义</p> </blockquote> <pre><code>cuda1 = torch.device('cuda:1') b = torch.randn((1000,1000,1000),device=cuda1) </code></pre> <blockquote> <p>删除某一变量</p> </blockquote> <pre><code>del a </code></pre> <blockquote> <p>在cpu定义tensor然后转到gpu</p> </blockquote> <pre><code>torch.zeros().cuda() </code></pre> <blockquote> <p>直接在gpu上定义，这样就减少了cpu的损耗</p> </blockquote> <pre><code>torch.cuda.FloatTensor(batch_size, self.hidden_dim, self.height, self.width).fill_(0) </code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-83530.htm">SpringBoot注解内容的动态配置</a></p>
+                                        <p>下一个：<a href="/news/article-84244.htm">SpringBoot中使用RestTemplate发送文件流，以及读取zip压缩包中文件的方法</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-47151.htm" title="ElasticSearch8 SpringBoot集成ElasticSearch8.x 基本应用 CRUD操作 环境安装详细步骤">ElasticSearch8 SpringBoot集成ElasticSearch8.x 基本应用 CRUD操作 环境安装详细步骤</a></li>
+                        <li class="py-2"><a href="/news/article-85673.htm" title="Java 18为什么要指定UTF-8为默认字符集_在线工具">Java 18为什么要指定UTF-8为默认字符集_在线工具</a></li>
+                        <li class="py-2"><a href="/news/article-44195.htm" title="宠物领养协议模板图片 宠物领养协议模板图片大全">宠物领养协议模板图片 宠物领养协议模板图片大全</a></li>
+                        <li class="py-2"><a href="/news/article-35787.htm" title="狗狗回收平台app（有回收狗的地方吗）">狗狗回收平台app（有回收狗的地方吗）</a></li>
+                        <li class="py-2"><a href="/news/article-39241.htm" title="开宠物店会不会赔本呢（开宠物店会不会赔本呢）">开宠物店会不会赔本呢（开宠物店会不会赔本呢）</a></li>
+                        <li class="py-2"><a href="/news/article-50708.htm" title="Redis和Mysql如何保证数据一致性">Redis和Mysql如何保证数据一致性</a></li>
+                        <li class="py-2"><a href="/news/article-71908.htm" title="Maven安装与配置，Idea配置Maven">Maven安装与配置，Idea配置Maven</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-27-free-node-subscribe-links.htm" title="SSTap Node节点订阅每天更新21.8M/S免费节点订阅链接地址分享">SSTap Node节点订阅每天更新21.8M/S免费节点订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-37720.htm" title="动物医院运营管理工作内容怎么写（动物医院管理流程）">动物医院运营管理工作内容怎么写（动物医院管理流程）</a></li>
+                        <li class="py-2"><a href="/news/article-38763.htm" title="动物疫苗贵吗现在能打吗 动物疫苗贵吗现在能打吗多少钱">动物疫苗贵吗现在能打吗 动物疫苗贵吗现在能打吗多少钱</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+        <footer class="footer-area">
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 align-self-center">
+                        <p class="copyright-text">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <a href="/">SSTap Node免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                    <div class="col-md-6 align-self-center">
+                        <ul class="footer-social">
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <a href="#" id="scroll-top"><i class="far fa-arrow-up"></i></a>
+    <script data-cfasync="false" src="/assets/website/js/frontend/sstapnode/email-decode.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/modernizr.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.appear.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.easing.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/counter-up.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery-ui.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.timepicker.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.nice-select.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

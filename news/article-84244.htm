@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sstapnode.github.io/news/article-84244.htm" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpringBoot中使用RestTemplate发送文件流，以及读取zip压缩包中文件的方法</title>
+        <meta name="description" content="接收方与发送方代码 @RestController @RequestMapping("/optimistic") public class OptimisticController {     @Re" />
+        <link rel="icon" href="/assets/website/img/sstapnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SSTap Node免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sstapnode.github.io/news/article-84244.htm" />
+    <meta property="og:site_name" content="SSTap Node免费机场订阅节点官网" />
+    <meta property="og:title" content="SpringBoot中使用RestTemplate发送文件流，以及读取zip压缩包中文件的方法" />
+    <meta property="og:image" content="https://sstapnode.github.io/uploads/20241109/b679c70887b8f518e5f466f712354b37.webp" />
+        <meta property="og:release_date" content="2025-03-29T09:03:33" />
+    <meta property="og:updated_time" content="2025-03-29T09:03:33" />
+        <meta property="og:description" content="接收方与发送方代码 @RestController @RequestMapping("/optimistic") public class OptimisticController {     @Re" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="SpringBoot中使用RestTemplate发送文件流，以及读取zip压缩包中文件的方法">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/all-fontawesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/animate.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/magnific-popup.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/jquery-ui.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/jquery.timepicker.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/nice-select.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RQLB5BXPJG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RQLB5BXPJG');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="loader-ripple">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <header class="header">
+        <div class="main-navigation">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container position-relative">
+                    <a class="navbar-brand" href="/">
+                                                <span>SSTap Node</span>
+                                            </a>
+                    <div class="mobile-menu-right">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-mobile-icon"><i class="far fa-bars"></i></span>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse" id="main_nav">
+                        <ul class="navbar-nav">
+                                                        <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/client.htm">客户端</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="site-breadcrumb" style="background: url(/assets/website/img/sstapnode/01.jpg)">
+            <div class="container">
+                <h1 class="breadcrumb-title">SpringBoot中使用RestTemplate发送文件流，以及读取zip压缩包中文件的方法</h1>
+                <ul class="breadcrumb-menu">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/news/">新闻资讯</a></li>
+                    <li class="active">正文</li>
+                </ul>
+            </div>
+        </div>
+        <div class="about-area py-120">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>接收方与发送方代码</p> <pre><code class="language-java">@RestController @RequestMapping("/optimistic") public class OptimisticController {     @Resource     private RestTemplate restTemplate;      //接收方     @PostMapping("receive")     public String receive(@RequestParam(value = "file",required = false) MultipartFile uploadFile) {         String originalFilename = uploadFile.getOriginalFilename();           return originalFilename;     }     //发送方     @PostMapping("send")     public String send(@RequestParam(value = "file",required = false) MultipartFile uploadFile) throws IOException {        //设置content-type为 multipart/form-data         HttpHeaders headers = new HttpHeaders();         headers.setContentType(MediaType.MULTIPART_FORM_DATA);         //获取流文件         InputStream inputStream = uploadFile.getInputStream();         InputStreamResource fileResource = new InputStreamResource(inputStream) {             //重写设置文件大小与名称             @Override             public long contentLength() {                 return uploadFile.getSize();             }              @Override             public String getFilename() {                 return uploadFile.getOriginalFilename();             }         };         MultiValueMap&lt;String, Object&gt; param = new LinkedMultiValueMap&lt;&gt;();         param.add("file",fileResource);         HttpEntity&lt;MultiValueMap&lt;String, Object&gt;&gt; requestEntity = new HttpEntity&lt;&gt;(param, headers);         String body = restTemplate.exchange("http://127.0.0.1:8088/optimistic/receive", HttpMethod.POST, requestEntity, String.class).getBody();         return body;     } }  </code></pre> <p>请求发送方接口成功返回</p> <p><img fetchpriority="high" decoding="async" alt="" height="857" src="http://img.555519.xyz/uploads/20230109/6b191bc0dc16271bd62434295ffbcf55.jpg"></p> <p>&nbsp;读取zip压缩包中的文件方法</p> <p>创建main函数测试</p> <pre><code class="language-java">    public static void main(String[] args) throws IOException {         BufferedInputStream bufferedInputStream = new BufferedInputStream(new FileInputStream("D://jobhandler/zip/test.zip"));         ZipInputStream zis  = new ZipInputStream(bufferedInputStream);         ZipEntry zipEntry;         BufferedReader br = new BufferedReader(                 new InputStreamReader(zis));         while ((zipEntry = zis.getNextEntry()) != null) {             // 解压压缩文件的其中具体的一个zipEntry对象             String name = zipEntry.getName();             try {                 StringBuffer sb = new StringBuffer();                 String line;                 while ((line = br.readLine()) != null) {                     sb.append(line);                     sb.append("\r\n");                 }                  System.out.println(sb);              } catch (Exception e) {                 e.printStackTrace();             }             zis.closeEntry();         }         zis.close();         br.close();      }</code></pre> <p>成功读取zip中的json文件</p> <p><img decoding="async" alt="" height="181" src="http://img.555519.xyz/uploads/20230109/6422f1b4a1713e2c4cd4359b1d26dbcd.jpg"></p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-83531.htm">pytorch cuda上tensor的定义  以及 减少cpu操作的方法</a></p>
+                                        <p>下一个：<a href="/news/article-84245.htm">python PIL Image 图像处理基本操作实例_python</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-51237.htm" title="动物疫苗注射注意事项及禁忌症是什么意思（动物疫苗接种方法有哪些）">动物疫苗注射注意事项及禁忌症是什么意思（动物疫苗接种方法有哪些）</a></li>
+                        <li class="py-2"><a href="/news/article-40734.htm" title="基于Debian搭建Hyperledger Fabric 2.4开发环境及运行简单案例">基于Debian搭建Hyperledger Fabric 2.4开发环境及运行简单案例</a></li>
+                        <li class="py-2"><a href="/news/article-76606.htm" title="动物医院的设计思路（动物医院的设计思路怎么写）">动物医院的设计思路（动物医院的设计思路怎么写）</a></li>
+                        <li class="py-2"><a href="/news/article-44195.htm" title="宠物领养协议模板图片 宠物领养协议模板图片大全">宠物领养协议模板图片 宠物领养协议模板图片大全</a></li>
+                        <li class="py-2"><a href="/news/article-43233.htm" title="动物医院下载安装 动物医院软件">动物医院下载安装 动物医院软件</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-31-free-node-subscribe.htm" title="SSTap Node节点订阅每天更新21.5M/S免费节点订阅链接地址分享">SSTap Node节点订阅每天更新21.5M/S免费节点订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-24-free-node-subscribe.htm" title="SSTap Node节点订阅每天更新21M/S免费节点订阅链接地址分享">SSTap Node节点订阅每天更新21M/S免费节点订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-56096.htm" title="动物接种疫苗的注意事项包括哪些方面（动物接种要点）">动物接种疫苗的注意事项包括哪些方面（动物接种要点）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-25-free-subscribe-node.htm" title="SSTap Node节点订阅每天更新20.8M/S免费节点订阅链接地址分享">SSTap Node节点订阅每天更新20.8M/S免费节点订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-71908.htm" title="Maven安装与配置，Idea配置Maven">Maven安装与配置，Idea配置Maven</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+        <footer class="footer-area">
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 align-self-center">
+                        <p class="copyright-text">
+                    <p>
+                        <a href="/">首页</a> | 
+                        <a href="/free-node/">免费节点</a> | 
+                        <a href="/news/">新闻资讯</a> |
+                        <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <a href="/">SSTap Node免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                    <div class="col-md-6 align-self-center">
+                        <ul class="footer-social">
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <a href="#" id="scroll-top"><i class="far fa-arrow-up"></i></a>
+    <script data-cfasync="false" src="/assets/website/js/frontend/sstapnode/email-decode.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/modernizr.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.appear.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.easing.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/counter-up.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery-ui.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.timepicker.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.nice-select.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
