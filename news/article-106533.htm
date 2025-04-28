@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://sstapnode.github.io/news/article-106533.htm" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyBatis:SQL语句中的foreach标签的详细介绍</title>
+        <meta name="description" content="foreach 也就是遍历迭代，在SQL中通常用在 in 这个关键词的后面 foreach元素的属性主要有 item，index，collection，open，separator，close。 分别" />
+        <link rel="icon" href="/assets/website/img/sstapnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SSTap Node免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://sstapnode.github.io/news/article-106533.htm" />
+    <meta property="og:site_name" content="SSTap Node免费机场订阅节点官网" />
+    <meta property="og:title" content="MyBatis:SQL语句中的foreach标签的详细介绍" />
+    <meta property="og:image" content="https://sstapnode.github.io/uploads/20241109/373dae1fb26a7258e334605b088bae69.webp" />
+        <meta property="og:release_date" content="2025-04-28T09:50:06" />
+    <meta property="og:updated_time" content="2025-04-28T09:50:06" />
+        <meta property="og:description" content="foreach 也就是遍历迭代，在SQL中通常用在 in 这个关键词的后面 foreach元素的属性主要有 item，index，collection，open，separator，close。 分别" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="MyBatis:SQL语句中的foreach标签的详细介绍">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/all-fontawesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/animate.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/magnific-popup.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/jquery-ui.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/jquery.timepicker.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/nice-select.min.css">
+    <link rel="stylesheet" href="/assets/website/css/sstapnode/style.css">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RQLB5BXPJG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RQLB5BXPJG');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="preloader">
+        <div class="loader-ripple">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <header class="header">
+        <div class="main-navigation">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container position-relative">
+                    <a class="navbar-brand" href="/">
+                                                <span>SSTap Node</span>
+                                            </a>
+                    <div class="mobile-menu-right">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main_nav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-mobile-icon"><i class="far fa-bars"></i></span>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse" id="main_nav">
+                        <ul class="navbar-nav">
+                                                        <li class="nav-item"><a class="nav-link" href="/">首页</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/free-nodes/">免费节点</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/paid-subscribe/">推荐机场</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/client.htm">客户端</a></li>
+                                                        <li class="nav-item"><a class="nav-link" href="/news/">新闻资讯</a></li>
+                                                    </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="site-breadcrumb" style="background: url(/assets/website/img/sstapnode/01.jpg)">
+            <div class="container">
+                <h1 class="breadcrumb-title">MyBatis:SQL语句中的foreach标签的详细介绍</h1>
+                <ul class="breadcrumb-menu">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/news/">新闻资讯</a></li>
+                    <li class="active">正文</li>
+                </ul>
+            </div>
+        </div>
+        <div class="about-area py-120">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>foreach 也就是遍历迭代，在SQL中通常用在 in 这个关键词的后面</p> <p>foreach元素的属性主要有 item，index，collection，open，separator，close。</p> <p>分别代表：</p> <p>item表示集合中每一个元素进行迭代时的别名，<br /> index用于表示在迭代过程中，每次迭代到的位置，<br /> open表示该语句以什么开始，<br /> separator表示在每次进行迭代之间以什么符号作为分隔 符，<br /> close表示以什么结束</p> <p>代码片段：</p> <pre><code>&lt;select id="selectByIds" resultType="com.txw.pojo.User"&gt;         select * from user where id in         &lt;foreach collection="list" index="index" item="item" open="(" separator="," close=")"&gt;             #{item}         &lt;/foreach&gt; &lt;/select&gt; </code></pre> <p>而最为重要的就是collection属性了，既然是迭代就表示传入的参数是多个，这时候传入的参数就有以下几种可能：</p> <pre><code>public List&lt;User&gt; selectByIds(List&lt;Integer&gt; ids); </code></pre> <p>xml文件代码片段：</p> <pre><code>&lt;select id="selectByIds" resultType="com.txw.pojo.User"&gt;         select * from user where id in         &lt;foreach collection="ids" index="index" item="item" open="(" separator="," close=")"&gt;             #{ids.account}         &lt;/foreach&gt; &lt;/select&gt; </code></pre> <p>xml中的ids代表前一段函数所传过来的参数的值，直接使用即可</p> </p></div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-105785.htm">git 回滚到之前某一commit</a></p>
+                                        <p>下一个：<a href="/news/article-106534.htm">济南宠物领养中心有哪些地方 济南宠物领养中心有哪些地方好</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-67366.htm" title="领养宠物狗是什么意思啊英语怎么写（领养宠物狗是什么意思啊英语怎么写单词）">领养宠物狗是什么意思啊英语怎么写（领养宠物狗是什么意思啊英语怎么写单词）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-24-free-node-subscribe.htm" title="SSTap Node节点订阅每天更新21M/S免费节点订阅链接地址分享">SSTap Node节点订阅每天更新21M/S免费节点订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-96804.htm" title="中国宠物用品生产基地有哪些（中国宠物用品出口基地）">中国宠物用品生产基地有哪些（中国宠物用品出口基地）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-21-free-node-subscribe.htm" title="SSTap Node节点订阅每天更新23M/S免费节点订阅链接地址分享">SSTap Node节点订阅每天更新23M/S免费节点订阅链接地址分享</a></li>
+                        <li class="py-2"><a href="/news/article-82106.htm" title="ES6基础语法之模块化介绍_基础知识">ES6基础语法之模块化介绍_基础知识</a></li>
+                        <li class="py-2"><a href="/news/article-87122.htm" title="狐狸犬多少元一只（银狐犬属于什么档次）">狐狸犬多少元一只（银狐犬属于什么档次）</a></li>
+                        <li class="py-2"><a href="/news/article-88581.htm" title="前端文件上传核心思想详解">前端文件上传核心思想详解</a></li>
+                        <li class="py-2"><a href="/news/article-82107.htm" title="猫三联加狂犬疫苗一共几针,多少钱一针（猫三联和狂犬疫苗间隔多久打一次）">猫三联加狂犬疫苗一共几针,多少钱一针（猫三联和狂犬疫苗间隔多久打一次）</a></li>
+                        <li class="py-2"><a href="/news/article-70576.htm" title="给动物打的疫苗是什么意思（给动物打疫苗的官方部门）">给动物打的疫苗是什么意思（给动物打疫苗的官方部门）</a></li>
+                        <li class="py-2"><a href="/news/article-81426.htm" title="java笔记之class类定义和名称和屏幕打印（系统输出）">java笔记之class类定义和名称和屏幕打印（系统输出）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+        <footer class="footer-area">
+        <div class="copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 align-self-center">
+                        <p class="copyright-text">
+                                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <a href="/">SSTap Node免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                    <div class="col-md-6 align-self-center">
+                        <ul class="footer-social">
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <a href="#" id="scroll-top"><i class="far fa-arrow-up"></i></a>
+    <script data-cfasync="false" src="/assets/website/js/frontend/sstapnode/email-decode.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery-3.6.0.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/modernizr.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/bootstrap.bundle.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/imagesloaded.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/isotope.pkgd.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.appear.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.easing.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/owl.carousel.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/counter-up.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery-ui.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.timepicker.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/jquery.nice-select.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/sstapnode/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
